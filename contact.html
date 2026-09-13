@@ -18,30 +18,38 @@
         header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .logo img { width: 45px; height: 45px; object-fit: cover; border-radius: 4px; }
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
         nav a:hover { opacity: 0.8; }
-        .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; flex: 1; }
-        .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 3rem; position: relative; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 10px auto 0; }
-        .contact-info { background: var(--white); padding: 3rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .info-block h3 { color: var(--primary); margin-bottom: 1rem; }
-        .info-block p { margin-bottom: 0.5rem; }
-        .info-block a { color: var(--secondary); text-decoration: none; font-weight: bold; }
+        
+        main { max-width: 800px; margin: 3rem auto; padding: 0 1.5rem; flex: 1; }
+        h1 { text-align: center; color: var(--primary); margin-bottom: 2rem; }
+        .contact-card { background: var(--white); border-radius: 10px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .contact-section { margin-bottom: 2rem; }
+        .contact-section:last-child { margin-bottom: 0; }
+        .contact-section h2 { font-size: 1.3rem; color: var(--primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 10px; }
+        .contact-section p { color: #555; margin-left: 1.8rem; }
+        
         footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
         .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 20px; }
         .social-links a { color: var(--white); text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 20px; transition: background 0.3s; }
         .social-links a:hover { background: var(--accent); }
+        
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 15px; }
-            .section { padding: 2rem 1rem; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">🌿 Healing Hands</div>
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none;">
+                    <img src="logo.png" alt="">
+                    <span>Healing Hands</span>
+                </a>
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
@@ -54,26 +62,31 @@
         </div>
     </header>
 
-    <section class="section">
-        <h2 class="section-title">Contact & Horaires</h2>
-        <div class="contact-info">
-            <div class="info-block">
-                <h3>📍 Localisation</h3>
-                <p>Rond-Point Express BIYEMASSI</p>
-                <p>Yaoundé, Cameroun</p>
-            </div>
-            <div class="info-block">
-                <h3>🕒 Horaires d'Ouverture</h3>
+    <main>
+        <h1>Contact & Horaires</h1>
+        <div class="contact-card">
+            <!-- 1. Horaires d'Ouverture -->
+            <div class="contact-section">
+                <h2>🕒 Horaires d'Ouverture</h2>
                 <p><strong>Lundi au Vendredi</strong></p>
                 <p>8h00 à 15h00</p>
             </div>
-            <div class="info-block">
-                <h3>📞 Contact direct</h3>
-                <p>Téléphone : <a href="tel:699427421">699427421</a></p>
-                <p>Email : <a href="mailto:healinghands1@gmail.com">healinghands1@gmail.com</a></p>
+
+            <!-- 2. Contact direct -->
+            <div class="contact-section">
+                <h2>📞 Contact direct</h2>
+                <p>Téléphone : <a href="tel:+237699427421" style="color: inherit; text-decoration: none;">+237699427421</a></p>
+                <p>Email : <a href="mailto:healinghands1@gmail.com" style="color: inherit; text-decoration: none;">healinghands1@gmail.com</a></p>
+            </div>
+
+            <!-- 3. Localisation -->
+            <div class="contact-section">
+                <h2>📍 Localisation</h2>
+                <p>Rond-Point Express BIYEMASSI</p>
+                <p>Yaoundé, Cameroun</p>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Healing Hands - Kinésithérapie & Réhabilitation. Tous droits réservés.</p>
