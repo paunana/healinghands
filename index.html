@@ -14,42 +14,25 @@
             --white: #ffffff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { color: var(--dark); background-color: var(--light); line-height: 1.6; }
+        body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
         header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
         nav a:hover { opacity: 0.8; }
-        .hero { padding: 4rem 2rem; text-align: center; background: var(--white); border-bottom: 5px solid var(--accent); }
+        .hero { padding: 6rem 2rem; text-align: center; background: var(--white); border-bottom: 5px solid var(--accent); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .hero h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; }
         .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; color: #555; }
         .cta-btn { display: inline-block; background: var(--accent); color: var(--white); padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.3s, background 0.3s; }
         .cta-btn:hover { transform: translateY(-2px); background: var(--primary); }
-        .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 3rem; position: relative; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 10px auto 0; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary); text-align: center; }
-        .service-card h3 { color: var(--primary); margin-bottom: 1rem; }
-        .about-text { background: var(--white); padding: 3rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.1rem; text-align: justify; border-left: 5px solid var(--primary); }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .testimonial-card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; }
-        .stars { color: #f1c40f; margin-bottom: 1rem; font-size: 1.2rem; }
-        .text { font-style: italic; color: #555; margin-bottom: 1.5rem; }
-        .author { font-weight: bold; color: var(--primary); text-align: right; }
-        .contact-info { background: var(--white); padding: 3rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .info-block h3 { color: var(--primary); margin-bottom: 1rem; }
-        .info-block p { margin-bottom: 0.5rem; }
-        .info-block a { color: var(--secondary); text-decoration: none; font-weight: bold; }
-        footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: 4rem; }
+        footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
         .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 20px; }
         .social-links a { color: var(--white); text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 20px; transition: background 0.3s; }
         .social-links a:hover { background: var(--accent); }
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 15px; }
             .hero h1 { font-size: 2rem; }
-            .section { padding: 2rem 1rem; }
         }
     </style>
 </head>
@@ -59,97 +42,20 @@
             <div class="logo">🌿 Healing Hands</div>
             <nav>
                 <ul>
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#apropos">À Propos</a></li>
-                    <li><a href="#temoignages">Témoignages</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="a-propos.html">À Propos</a></li>
+                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="accueil" class="hero">
+    <section class="hero">
         <h1>Healing Hands</h1>
         <p>Une équipe de kinésithérapeutes qualifiés à votre service pour votre bien-être et votre réhabilitation.</p>
         <a href="tel:699427421" class="cta-btn">Appeler la clinique : 699427421</a>
-    </section>
-
-    <section id="services" class="section">
-        <h2 class="section-title">Nos Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Rééducation fonctionnelle</h3>
-                <p>Restauration de vos capacités physiques et de votre mobilité après une blessure, une chirurgie ou une perte d'autonomie.</p>
-            </div>
-            <div class="service-card">
-                <h3>Relaxation</h3>
-                <p>Techniques manuelles et séances dédiées à l'apaisement des tensions musculaires et à la réduction du stress global.</p>
-            </div>
-            <div class="service-card">
-                <h3>Entraînement à l'effort</h3>
-                <p>Programmes personnalisés pour réhabituer votre corps au mouvement, améliorer l'endurance et renforcer votre santé globale.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="apropos" class="section" style="background-color: rgba(0, 128, 128, 0.05); border-radius: 20px;">
-        <h2 class="section-title">À Propos de Nous</h2>
-        <div class="about-text">
-            Notre équipe de thérapeutes certifiés met son expertise scientifique au service de votre santé globale. Grâce à une formation continue et à l'utilisation de techniques de pointe, nous offrons des diagnostics précis et des plans de traitement fondés sur des données probantes. Nous travaillons en étroite collaboration avec les athlètes, les travailleurs et les aînés pour optimiser la récupération et prévenir les récidives. Notre engagement : Offrir des soins d'une qualité supérieure pour vous aider à atteindre vos objectifs de performance et de santé, rapidement et durablement.
-        </div>
-    </section>
-
-    <section id="temoignages" class="section">
-        <h2 class="section-title">Témoignages de nos Patients</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Traitée pour une tendinite à l’épaule qui traînait depuis des mois. Les soins et les exercices à la maison ont fait des miracles. Je recommande à 100 % ! »</div>
-                <div class="author">— Julie R.</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Prise en charge exceptionnelle après un accident de la route. L'équipe est douce, professionnelle et m'a aidé à retrouver ma mobilité sans stress. Merci pour tout ! »</div>
-                <div class="author">— Thomas M.</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Je souffrais de maux de cou chroniques à force de travailler à l'ordinateur. Dès les premières séances, j'ai ressenti un soulagement immense. Très à l'écoute. »</div>
-                <div class="author">— Amélie V.</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Des professionnels compétents et humains. Ils ont su diagnostiquer et régler ma tendinite au genou rapidement. On se sent vraiment entre de bonnes mains. »</div>
-                <div class="author">— Lucas D.</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Après mon accident de voiture, j'avais d'importantes raideurs aux cervicales. Grâce à leur expertise, les maux de cou ont disparu et j'ai repris mes activités. »</div>
-                <div class="author">— Sophie L.</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Contact & Horaires</h2>
-        <div class="contact-info">
-            <div class="info-block">
-                <h3>📍 Localisation</h3>
-                <p>Rond-Point Express BIYEMASSI</p>
-                <p>Yaoundé, Cameroun</p>
-            </div>
-            <div class="info-block">
-                <h3>🕒 Horaires d'Ouverture</h3>
-                <p><strong>Lundi au Vendredi</strong></p>
-                <p>8h00 à 15h00</p>
-            </div>
-            <div class="info-block">
-                <h3>📞 Contact direct</h3>
-                <p>Téléphone : <a href="tel:699427421">699427421</a></p>
-                <p>Email : <a href="mailto:healinghands1@gmail.com">healinghands1@gmail.com</a></p>
-            </div>
-        </div>
     </section>
 
     <footer>
