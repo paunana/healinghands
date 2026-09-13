@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healing Hands - Kinésithérapie & Réhabilitation</title>
+    <title>Healing Hands - Kinésithérapie & Rééducation Fonctionnelle</title>
     <style>
         :root {
             --primary: #1b4d3e;
@@ -15,28 +15,71 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Navigation Header */
         header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
         .logo img { width: 45px; height: 45px; object-fit: cover; border-radius: 4px; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
         nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
         nav a:hover { opacity: 0.8; }
-        .hero { padding: 4rem 2rem; text-align: center; background: var(--white); border-bottom: 5px solid var(--accent); flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .hero h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; }
-        .hero img { max-width: 600px; width: 100%; height: auto; margin: 1.5rem 0; border-radius: 8px; object-fit: cover; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #555; }
-        footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
-        .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { color: var(--white); text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 20px; transition: background 0.3s; }
-        .social-links a:hover { background: var(--accent); }
+        .nav-rdv-btn { background: var(--accent); padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: bold; }
+
+        /* Common Section Styling */
+        section { padding: 4rem 2rem; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        h2 { font-size: 2rem; color: var(--primary); text-align: center; margin-bottom: 2rem; }
+
+        /* Section 1: Hero Banner */
+        .hero { 
+            background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(0, 128, 128, 0.85)), url('session de traitement.jpg') center/cover no-repeat;
+            color: var(--white); text-align: center; padding: 6rem 2rem; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; max-width: 900px; }
+        .hero p { font-size: 1.2.rem; max-width: 750px; margin-bottom: 2rem; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn-primary { background: var(--accent); color: var(--white); padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .btn-primary:hover { background: #236c43; }
+        .btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+        /* Section 2: Le Cabinet */
+        .about { background: var(--white); }
+        .about-content { text-align: center; max-width: 850px; margin: 0 auto 3rem; font-size: 1.1rem; color: #555; }
+        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .highlight-card { background: var(--light); padding: 1.5rem; border-radius: 8px; text-align: center; }
+        .highlight-card h3 { color: var(--primary); margin-bottom: 0.5rem; }
+
+        /* Section 3: Nos Expertises */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .service-card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+        .service-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem; }
+
+        /* Section 4: Informations Pratiques */
+        .info-pratiques { background: var(--white); }
+        .split-screen { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .info-box { background: var(--light); padding: 2rem; border-radius: 8px; }
+        .info-box h3 { color: var(--primary); margin-bottom: 1rem; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; }
+
+        /* Section 5: Footer & Contact */
+        footer { background: var(--primary); color: var(--white); padding: 3rem 2rem 1.5rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto 2rem; }
+        .footer-box h3 { margin-bottom: 1rem; color: #a3e0c0; }
+        .footer-box a { color: var(--white); text-decoration: none; }
+        .copyright { text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.9rem; }
+
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 15px; }
             .hero h1 { font-size: 2rem; }
+            section { padding: 2.5rem 1rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation Menu (Header) -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -47,28 +90,115 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="a-propos.html">À Propos</a></li>
-                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="index.html#cabinet">Cabinet</a></li>
+                    <li><a href="index.html#specialites">Spécialités</a></li>
+                    <li><a href="index.html#infos">Infos Pratiques</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://wa.me/237699427421" target="_blank" class="nav-rdv-btn">Prendre RDV</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Section 1: Hero Banner -->
     <section class="hero">
-        <h1>Healing Hands</h1>
-        <img src="session de traitement.jpg" alt="Session de traitement">
-        <p>Une équipe de kinésithérapeutes qualifiés à votre service pour votre bien-être et votre réhabilitation.</p>
+        <h1>Cabinet de Kinésithérapie & Rééducation Fonctionnelle</h1>
+        <p>Accompagnement personnalisé pour votre mobilité, votre performance et votre bien-être. À l'écoute de votre corps.</p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/237699427421" target="_blank" class="btn-primary">Prendre Rendez-vous en Ligne</a>
+            <a href="#cabinet" class="btn-secondary">Découvrir le Cabinet</a>
+        </div>
     </section>
 
+    <!-- Section 2: Le Cabinet & L'Équipe -->
+    <section id="cabinet" class="about">
+        <div class="container">
+            <h2>Une approche humaine centrée sur votre récupération</h2>
+            <div class="about-content">
+                <p>Bienvenue au cabinet. Diplômé(e) d’État, je vous accueille dans un espace moderne et chaleureux dédié à votre réhabilitation. Chaque parcours de soin commence par un bilan initial complet afin de concevoir un programme thérapeutique sur-mesure, adapté à vos objectifs (soulagement de la douleur, reprise du sport, autonomie au quotidien).</p>
+            </div>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>📍 Sur Rendez-vous</h3>
+                    <p>Prise en charge individuelle et personnalisée.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🏢 Équipement Moderne</h3>
+                    <p>Plateau technique équipé pour une rééducation optimale.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>♿ Accessibilité</h3>
+                    <p>Cabinet aux normes PMR (Personnes à Mobilité Réduite), accessible en rez-de-chaussée.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Nos Expertises -->
+    <section id="specialites">
+        <div class="container">
+            <h2>Domaines de prise en charge</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🦴 Kinésithérapie Générale</h3>
+                    <p>Traitement des douleurs de dos, rhumatologie, entorses, et rééducation post-opératoire.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
+                    <p>Prévention des blessures, réathlétisation et optimisation de la performance pour athlètes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>👶 Pédiatrie & Maternité</h3>
+                    <p>Bronchiolite du nourrisson, motricité libre, et rééducation périnéale post-partum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Informations Pratiques -->
+    <section id="infos" class="info-pratiques">
+        <div class="container">
+            <h2>Horaires & Tarifs</h2>
+            <div class="split-screen">
+                <div class="info-box">
+                    <h3>🕒 Horaires d'ouverture</h3>
+                    <p><strong>Lundi au Vendredi :</strong> 8h00 – 15h00</p>
+                    <p><strong>Samedi & Dimanche :</strong> Fermé</p>
+                </div>
+                <div class="info-box">
+                    <h3>💳 Tarifs & Remboursements</h3>
+                    <p>Professionnel de santé Conventionné (Tiers-payant disponible avec carte Vitale et mutuelle).</p>
+                    <br>
+                    <p style="font-size: 0.85rem; font-style: italic; color: #666;">"Les honoraires fixés par votre praticien sont réglementés par la Sécurité Sociale."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Nous Trouver & Contact (Footer) -->
     <footer>
-        <p>&copy; 2026 Healing Hands - Kinésithérapie & Réhabilitation. Tous droits réservés.</p>
-        <div class="social-links">
-            <a href="https://wa.me/237699427421" target="_blank">💬 WhatsApp</a>
-            <a href="#" target="_blank">📘 Facebook</a>
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>📍 Nous Trouver & Accès</h3>
+                <p>Rond-Point Express BIYEMASSI</p>
+                <p>Yaoundé, Cameroun</p>
+            </div>
+            <div class="footer-box">
+                <h3>📞 Contact</h3>
+                <p>Téléphone : <a href="tel:+237699427421">+237699427421</a></p>
+                <p>Email : <a href="mailto:healinghands1@gmail.com">healinghands1@gmail.com</a></p>
+            </div>
+            <div class="footer-box">
+                <h3>💬 Rendez-vous</h3>
+                <p>Prise de rendez-vous rapide via WhatsApp ou téléphone.</p>
+                <br>
+                <a href="https://wa.me/237699427421" target="_blank" style="background: var(--accent); padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Contacter sur WhatsApp</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
         </div>
     </footer>
+
 </body>
 </html>
