@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healing Hands - Kinésithérapie & Rééducation Fonctionnelle</title>
+    <title>Témoignages - Healing Hands</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -89,8 +89,9 @@
             transition: opacity 0.2s ease;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             opacity: 1;
+            border-bottom: 2px solid var(--white);
         }
 
         .nav-rdv-btn {
@@ -109,9 +110,31 @@
             transform: translateY(-1px);
         }
 
-        /* Common Section Styling */
+        /* En-tête de la Page Témoignages */
+        .page-header {
+            background: linear-gradient(rgba(27, 77, 62, 0.9), rgba(0, 128, 128, 0.9)), url('Session de traitement.png') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Témoignages */
         section {
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
+            flex: 1;
         }
 
         .container {
@@ -119,223 +142,82 @@
             margin: 0 auto;
         }
 
-        h2 {
-            font-size: 2.25rem;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 2.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(27, 77, 62, 0.88), rgba(0, 128, 128, 0.88)), url('session-de-traitement.png') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 2rem 6rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-title-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-icon {
-            width: 100%;
-            max-width: 320px;
-            height: auto;
-            max-height: 380px;
-            object-fit: cover;
-            border-radius: var(--radius);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            max-width: 850px;
-            line-height: 1.25;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            max-width: 680px;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 2px solid var(--white);
-            padding: 0.9rem 2.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            backdrop-filter: blur(4px);
-            transition: all 0.2s ease;
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        /* Section 2: Le Cabinet */
-        .about {
-            background: var(--white);
-        }
-
-        .about-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3.5rem;
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .highlights-grid {
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .highlight-card {
-            background: var(--light);
-            padding: 2rem 1.5rem;
+        .testimonial-card {
+            background: var(--white);
             border-radius: var(--radius);
-            text-align: center;
-            transition: transform 0.2s ease;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--accent);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .highlight-card:hover {
-            transform: translateY(-4px);
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
-        .highlight-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
+        .rating {
+            color: #f59e0b;
             font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        .highlight-card p {
+        .testimonial-text {
             color: var(--text-muted);
-            font-size: 0.95rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.975rem;
+            line-height: 1.7;
         }
 
-        /* Section 3: Footer */
+        .author-info h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .author-info span {
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
         footer {
             background: var(--primary);
             color: var(--white);
-            padding: 4rem 2rem 2rem;
+            padding: 2rem;
             margin-top: auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 40px;
-            max-width: 1100px;
-            margin: 0 auto 3rem;
-        }
-
-        .footer-box h3 {
-            margin-bottom: 1.25rem;
-            color: #a3e0c0;
-            font-size: 1.15rem;
-        }
-
-        .footer-box p {
-            margin-bottom: 0.5rem;
-            opacity: 0.9;
-        }
-
-        .footer-box a {
-            color: var(--white);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .footer-box a:hover {
-            opacity: 0.8;
-        }
-
-        .footer-btn {
-            display: inline-block;
-            background: var(--accent);
-            padding: 0.75rem 1.25rem;
-            border-radius: 8px;
-            font-weight: 600;
-            margin-top: 0.5rem;
-            transition: background 0.2s ease;
-        }
-
-        .footer-btn:hover {
-            background: var(--accent-hover);
         }
 
         .copyright {
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            padding-top: 2rem;
             font-size: 0.875rem;
-            opacity: 0.75;
+            opacity: 0.85;
         }
 
-        /* Responsive Breakpoints */
+        /* Responsive */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
             }
 
-            .hero {
-                padding: 4rem 1.5rem;
-            }
-
-            .hero h1 {
+            .page-header h1 {
                 font-size: 1.85rem;
             }
 
             section {
-                padding: 3.5rem 1.25rem;
-            }
-
-            h2 {
-                font-size: 1.75rem;
+                padding: 3rem 1.25rem;
             }
         }
     </style>
@@ -351,12 +233,11 @@
                     <span>Healing Hands</span>
                 </a>
             </div>
-            <!-- Navigation mise à jour avec le lien vers témoignages -->
             <nav>
                 <ul>
-                    <li><a href="#cabinet">Cabinet</a></li>
+                    <li><a href="index.html#cabinet">Cabinet</a></li>
                     <li><a href="domaines.html">Domaines de prise en charge</a></li>
-                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="temoignages.html" class="active">Témoignages</a></li>
                 </ul>
             </nav>
             <div class="header-actions">
@@ -365,62 +246,83 @@
         </div>
     </header>
 
-    <!-- Section 1: Hero Banner -->
-    <section class="hero">
-        <div class="hero-title-container">
-            <img src="session-de-traitement.png" alt="Session de traitement en cabinet" class="hero-icon">
-            <h1>Cabinet de Kinésithérapie & Rééducation Fonctionnelle</h1>
-        </div>
-        <p>Accompagnement personnalisé pour votre mobilité, votre performance et votre bien-être. À l'écoute de votre corps.</p>
-        <div class="hero-buttons">
-            <a href="https://wa.me/237699427421" target="_blank" class="btn-primary">Prendre Rendez-vous</a>
-            <a href="#cabinet" class="btn-secondary">Découvrir le Cabinet</a>
-        </div>
-    </section>
+    <!-- En-tête de la Page Témoignages -->
+    <div class="page-header">
+        <h1>Témoignages de nos Patients</h1>
+        <p>Découvrez les retours d'expérience et parcours de soins au cabinet Healing Hands.</p>
+    </div>
 
-    <!-- Section 2: Le Cabinet -->
-    <section id="cabinet" class="about">
+    <!-- Section: 5 Témoignages Exclusifs -->
+    <section>
         <div class="container">
-            <h2>Une approche humaine centrée sur votre récupération</h2>
-            <div class="about-content">
-                <p>Bienvenue au cabinet. Diplômé(e) d’État, je vous accueille dans un espace moderne et chaleureux dédié à votre réhabilitation. Chaque parcours de soin commence par un bilan initial complet afin de concevoir un programme thérapeutique sur-mesure, adapté à vos objectifs (soulagement de la douleur, reprise du sport, autonomie au quotidien).</p>
-            </div>
-            <div class="highlights-grid">
-                <div class="highlight-card">
-                    <h3>📍 Sur Rendez-vous</h3>
-                    <p>Prise en charge individuelle et entièrement personnalisée.</p>
+            <div class="testimonials-grid">
+
+                <!-- Témoignage 1 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"Une prise en charge exceptionnelle. Grâce aux séances de kinésithérapie, j'ai pu reprendre le sport sans douleur à l'épaule. Un suivi très professionnel."</p>
+                    </div>
+                    <div class="author-info">
+                        <h3>Banlok Thomas</h3>
+                        <span>Rééducation Sportive</span>
+                    </div>
                 </div>
-                <div class="highlight-card">
-                    <h3>🏢 Équipement Moderne</h3>
-                    <p>Plateau technique moderne équipé pour une rééducation optimale.</p>
+
+                <!-- Témoignage 2 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"Le traitement de mes douleurs lombaires a été d'une efficacité remarquable. Équipe très à l'écoute et conseils précieux pour le quotidien."</p>
+                    </div>
+                    <div class="author-info">
+                        <h3>Eding M. Serges</h3>
+                        <span>Kinésithérapie Générale</span>
+                    </div>
                 </div>
-                <div class="highlight-card">
-                    <h3>♿ Accessibilité PMR</h3>
-                    <p>Cabinet aux normes PMR, entièrement accessible en rez-de-chaussée.</p>
+
+                <!-- Témoignage 3 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"Après mon opération du genou, la rééducation a été parfaite. Le cabinet est très bien équipé et le personnel met tout de suite en confiance."</p>
+                    </div>
+                    <div class="author-info">
+                        <h3>Marie-Claire K.</h3>
+                        <span>Rééducation Post-Opératoire</span>
+                    </div>
                 </div>
+
+                <!-- Témoignage 4 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"Grand professionnalisme dans la prise en charge des douleurs chroniques. Les progrès ont été rapides dès les premières sessions."</p>
+                    </div>
+                    <div class="author-info">
+                        <h3>Dr. Joseph N.</h3>
+                        <span>Soin des Douleurs Chroniques</span>
+                    </div>
+                </div>
+
+                <!-- Témoignage 5 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="rating">★★★★★</div>
+                        <p class="testimonial-text">"Accueil chaleureux et soins personnalisés. Je recommande vivement le cabinet Healing Hands pour toute séance de kinésithérapie."</p>
+                    </div>
+                    <div class="author-info">
+                        <h3>Chantal T.</h3>
+                        <span>Suivi Thérapeutique</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Footer & Contact -->
+    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-box">
-                <h3>📍 Accès & Adresse</h3>
-                <p>Rond-Point Express BIYEMASSI</p>
-                <p>Yaoundé, Cameroun</p>
-            </div>
-            <div class="footer-box">
-                <h3>📞 Contact</h3>
-                <p>Téléphone : <a href="tel:+237699427421">+237 6 99 42 74 21</a></p>
-                <p>Email : <a href="mailto:healinghands1@gmail.com">healinghands1@gmail.com</a></p>
-            </div>
-            <div class="footer-box">
-                <h3>💬 Prise de RDV</h3>
-                <p>Prenez facilement rendez-vous via WhatsApp ou directement par téléphone.</p>
-                <a href="https://wa.me/237699427421" target="_blank" class="footer-btn">WhatsApp direct</a>
-            </div>
-        </div>
         <div class="copyright">
             <p>&copy; 2026 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
         </div>
