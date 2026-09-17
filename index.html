@@ -65,14 +65,16 @@
             gap: 15px;
         }
 
-        .logo a {
+        /* Logo fixe non cliquable */
+        .logo {
             font-size: 1.25rem;
             font-weight: 700;
             display: flex;
             align-items: center;
             gap: 10px;
             color: var(--white);
-            text-decoration: none;
+            cursor: default;
+            user-select: none;
         }
 
         .logo img {
@@ -275,14 +277,12 @@
 </head>
 <body>
 
-    <!-- Header avec navigation et boutons de contact -->
+    <!-- Header avec logo fixe et navigation -->
     <header>
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">
-                    <img src="logo.png" alt="Logo Healing Hands">
-                    <span>Healing Hands</span>
-                </a>
+                <img src="logo.png" alt="Logo Healing Hands">
+                <span>Healing Hands</span>
             </div>
             <nav>
                 <ul>
