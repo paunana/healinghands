@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Healing Hands - Kinésithérapie & Rééducation</title>
+    <title>Domaines de Prise en Charge - Healing Hands</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -131,30 +131,31 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(0, 128, 128, 0.85)), url('Session de traitement.png') center/cover no-repeat;
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(27, 77, 62, 0.9), rgba(0, 128, 128, 0.9)), url('Session de traitement.png') center/cover no-repeat;
             color: var(--white);
             text-align: center;
-            padding: 5rem 1.25rem;
+            padding: 3rem 1.25rem;
         }
 
-        .hero h1 {
-            font-size: 2.5rem;
+        .page-header h1 {
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            opacity: 0.95;
+        .page-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Sections communes */
+        /* Section Services */
         section {
-            padding: 3.5rem 1.25rem;
+            padding: 2.5rem 1.25rem;
+            flex: 1;
         }
 
         .container {
@@ -162,77 +163,52 @@
             margin: 0 auto;
         }
 
-        .section-title {
-            text-align: center;
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Cabinet Section */
-        #cabinet {
-            background: var(--white);
-        }
-
-        .cabinet-content {
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .cabinet-text p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .cabinet-img img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-        }
-
-        /* Contact & Localisation Section */
-        #contact {
-            background: var(--light);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        .contact-card {
+        .service-card {
             background: var(--white);
-            padding: 2rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border-top: 4px solid var(--accent);
-            text-align: center;
-        }
-
-        .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
-        }
-
-        .contact-card p, .contact-card a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 1rem;
-        }
-
-        .contact-card a:hover {
-            color: var(--accent);
-        }
-
-        .phone-list {
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 5px;
+        }
+
+        .img-container {
+            width: 100%;
+            background-color: var(--light);
+            overflow: hidden;
+        }
+
+        .service-img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         /* Footer */
@@ -249,7 +225,7 @@
             opacity: 0.85;
         }
 
-        /* Adaptation Mobile (Android & iPhone) */
+        /* Adaptation Mobile */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -260,14 +236,6 @@
             .header-actions {
                 width: 100%;
                 justify-content: center;
-            }
-
-            .hero h1 {
-                font-size: 1.85rem;
-            }
-
-            .cabinet-content {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -285,8 +253,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html#cabinet" class="active">Cabinet</a></li>
-                    <li><a href="domaines.html">Domaines de prise en charge</a></li>
+                    <li><a href="index.html#cabinet">Cabinet</a></li>
+                    <li><a href="domaines.html" class="active">Domaines de prise en charge</a></li>
                     <li><a href="temoignages.html">Témoignages</a></li>
                 </ul>
             </nav>
@@ -298,50 +266,35 @@
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <h1>Bienvenue chez Healing Hands</h1>
-        <p>Votre centre spécialisé en kinésithérapie et rééducation fonctionnelle.</p>
-    </section>
+    <!-- En-tête de la Page -->
+    <div class="page-header">
+        <h1>Nos Expertises</h1>
+        <p>Découvrez l'ensemble des soins et accompagnements thérapeutiques proposés au cabinet.</p>
+    </div>
 
-    <!-- Section Cabinet -->
-    <section id="cabinet">
+    <!-- Section Domaines -->
+    <section>
         <div class="container">
-            <h2 class="section-title">Notre Cabinet</h2>
-            <div class="cabinet-content">
-                <div class="cabinet-text">
-                    <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos soins de rééducation.</p>
-                    <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
-                </div>
-                <div class="cabinet-img">
-                    <img src="Session de traitement.png" alt="Cabinet Healing Hands">
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="services-grid">
 
-    <!-- Section Contact & Localisation -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact & Localisation</h2>
-            <div class="contact-grid">
-                
-                <div class="contact-card">
-                    <h3>📍 Localisation</h3>
-                    <p>Cabinet Healing Hands<br>Douala / Yaoundé, Cameroun</p>
-                </div>
-
-                <div class="contact-card">
-                    <h3>📱 Téléphone & WhatsApp</h3>
-                    <div class="phone-list">
-                        <p><a href="https://wa.me/237699427421" target="_blank">+237 699 42 74 21</a></p>
-                        <p><a href="https://wa.me/237675761444" target="_blank">+237 675 76 14 44</a></p>
+                <div class="service-card">
+                    <div class="img-container">
+                        <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3>🦴 Kinésithérapie Générale</h3>
+                        <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
                     </div>
                 </div>
 
-                <div class="contact-card">
-                    <h3>✉️ Adresse Email</h3>
-                    <p><a href="mailto:contact@healinghands.com">contact@healinghands.com</a></p>
+                <div class="service-card">
+                    <div class="img-container">
+                        <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img">
+                    </div>
+                    <div class="service-content">
+                        <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
+                        <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
+                    </div>
                 </div>
 
             </div>
