@@ -137,7 +137,7 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section avec overlay dynamique */
+        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(0, 128, 128, 0.85)), url('Session de traitement.png') center/cover no-repeat;
             color: var(--white);
@@ -192,11 +192,11 @@
             font-size: 1rem;
         }
 
-        /* Image du cabinet animée au survol */
+        /* Image du cabinet ajustée sans coupure */
         .cabinet-img img {
             width: 8cm;
-            height: 6cm;
-            object-fit: cover;
+            max-height: 6cm;
+            object-fit: contain;
             background-color: var(--light);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -230,7 +230,6 @@
             gap: 15px;
         }
 
-        /* Cartes de contact avec animations d'élévation */
         .contact-card {
             background: var(--white);
             padding: 1rem;
