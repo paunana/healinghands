@@ -30,11 +30,9 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Blocage du défilement avec fond animé discret */
         html, body {
             width: 100%;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
         }
 
         body {
@@ -57,7 +55,7 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             flex-shrink: 0;
             position: relative;
@@ -69,41 +67,33 @@
             margin: 0 auto;
             display: flex;
             align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 15px;
             min-height: 60px;
         }
 
-        /* Logo uniquement */
+        /* Logo aligné proprement */
         .logo {
             display: flex;
             align-items: center;
             cursor: default;
             user-select: none;
-            position: absolute;
-            left: 0;
-            top: 1.5cm;
             z-index: 10;
         }
 
         .logo img {
-            width: 120px;
-            height: 120px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
             border-radius: 12px;
             background: var(--white);
-            border: 3px solid rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             padding: 2px;
+            display: block;
         }
 
-        /* Menu centré */
-        nav {
-            margin: 0 auto;
-        }
-
+        /* Menu */
         nav ul {
             display: flex;
             list-style: none;
@@ -126,7 +116,6 @@
             transform: translateY(-2px);
         }
 
-        /* Pas de trait en dessous du lien actif */
         nav a.active {
             opacity: 1;
             border-bottom: none;
@@ -162,7 +151,7 @@
         #cabinet {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(5px);
-            padding: 1.5rem 1.25rem;
+            padding: 2rem 1.25rem;
             flex: 1;
             display: flex;
             align-items: center;
@@ -183,44 +172,28 @@
             align-items: center;
         }
 
-        .cabinet-text {
-            /* S'assure que le texte reste à gauche */
-            grid-column: 1; 
-        }
-
         .cabinet-text p {
             color: var(--text-muted);
             margin-bottom: 1rem;
             font-size: 1rem;
         }
 
-        /* Conteneur d'image */
+        /* Conteneur d'image sans débordement */
         .cabinet-img {
-            text-align: center;
-            position: relative;
-            grid-column: 2; /* L'image va dans la colonne de droite */
             display: flex;
-            justify-content: center; /* Centre l'image dans sa colonne */
+            justify-content: center;
             align-items: center;
+            width: 100%;
         }
 
-        /* Image statique agrandie et déplacée de 5cm vers la droite */
         .cabinet-img img {
-            width: 8cm;
-            max-height: 6cm;
+            max-width: 100%;
+            height: auto;
             object-fit: contain;
             background-color: var(--light);
             border-radius: var(--radius);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             display: block;
-            margin: 0; /* Enlever les marges automatiques */
-            
-            /* L'image est déjà agrandie (scale 2), on la déplace de 5cm */
-            transform: translateX(5cm) scale(2); 
-            
-            position: relative;
-            z-index: 30;
-            cursor: default;
         }
 
         /* Contact & Localisation Section */
@@ -324,55 +297,20 @@
             }
         }
 
-        /* Adaptation Mobile */
-        @media (max-width: 768px) {
-            html, body {
-                overflow-y: auto;
+        /* Adaptation Écrans Moyens et Mobiles */
+        @media (max-width: 900px) {
+            .cabinet-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cabinet-text {
+                text-align: center;
             }
 
             .nav-container {
                 flex-direction: column;
                 justify-content: center;
-                text-align: center;
-            }
-
-            .logo {
-                position: static;
-                top: auto;
-                margin-bottom: 10px;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .cabinet-content {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .cabinet-text {
-                grid-column: 1;
-                text-align: center;
-            }
-
-            .cabinet-img {
-                grid-column: 1; /* L'image passe sous le texte sur mobile */
-            }
-
-            .logo img {
-                width: 90px;
-                height: 90px;
-            }
-
-            .cabinet-img img {
-                width: 100%; /* S'adapte à la largeur de l'écran */
-                max-width: 6cm; /* Mais pas trop grande */
-                max-height: auto;
-                
-                /* Sur mobile, on enlève le décalage de 5cm, on centre et on réduit le scale */
-                transform: translateX(0) scale(1.4); 
-                margin: 15px auto; 
             }
         }
     </style>
