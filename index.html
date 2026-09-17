@@ -65,7 +65,7 @@
             gap: 15px;
         }
 
-        /* Logo doublé en taille (160px x 160px) */
+        /* Logo 160px x 160px */
         .logo {
             font-size: 1.35rem;
             font-weight: 700;
@@ -105,34 +105,6 @@
         nav a:hover, nav a.active {
             opacity: 1;
             border-bottom: 2px solid var(--white);
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            padding: 0.5rem 0.9rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            color: var(--white);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .btn-whatsapp {
-            background: var(--accent);
-        }
-
-        .btn-email {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         /* Hero Section */
@@ -262,11 +234,6 @@
                 text-align: center;
             }
 
-            .header-actions {
-                width: 100%;
-                justify-content: center;
-            }
-
             .hero h1 {
                 font-size: 1.85rem;
             }
@@ -284,7 +251,7 @@
 </head>
 <body>
 
-    <!-- Header avec grand logo 160x160 -->
+    <!-- Header sans contacts -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -298,11 +265,6 @@
                     <li><a href="temoignages.html">Témoignages</a></li>
                 </ul>
             </nav>
-            <div class="header-actions">
-                <a href="https://wa.me/237699427421" target="_blank" class="nav-btn btn-whatsapp">📱 +237 699 42 74 21</a>
-                <a href="https://wa.me/237675761444" target="_blank" class="nav-btn btn-whatsapp">📱 +237 675 76 14 44</a>
-                <a href="mailto:contact@healinghands.com?subject=Demande%20de%20rendez-vous" class="nav-btn btn-email">✉️ Email</a>
-            </div>
         </div>
     </header>
 
@@ -312,10 +274,9 @@
         <p>Votre centre spécialisé en kinésithérapie et rééducation fonctionnelle.</p>
     </section>
 
-    <!-- Section Cabinet -->
+    <!-- Section Cabinet (sans le titre "Notre Cabinet") -->
     <section id="cabinet">
         <div class="container">
-            <h2 class="section-title">Notre Cabinet</h2>
             <div class="cabinet-content">
                 <div class="cabinet-text">
                     <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos soins de rééducation.</p>
