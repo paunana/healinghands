@@ -2,7 +2,8 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Balise viewport optimisée pour Android et iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Domaines de Prise en Charge - Healing Hands</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +27,13 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Supprime le rectangle gris au clic sur iOS */
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
         }
 
         body {
@@ -42,7 +49,7 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
-            padding: 1rem 2rem;
+            padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -55,21 +62,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo a {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: var(--white);
             text-decoration: none;
         }
 
         .logo img {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             object-fit: cover;
             border-radius: 8px;
             background: var(--white);
@@ -78,13 +87,14 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             opacity: 0.9;
             transition: opacity 0.2s ease;
         }
@@ -94,38 +104,49 @@
             border-bottom: 2px solid var(--white);
         }
 
-        .nav-rdv-btn {
-            background: var(--accent);
-            padding: 0.6rem 1.4rem;
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 0.9rem;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 0.85rem;
             color: var(--white);
             text-decoration: none;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .nav-rdv-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
+        .btn-whatsapp {
+            background: var(--accent);
         }
 
-        /* Hero Banner Page Domaines */
+        .btn-email {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Page Header */
         .page-header {
             background: linear-gradient(rgba(27, 77, 62, 0.9), rgba(0, 128, 128, 0.9)), url('Session de traitement.png') center/cover no-repeat;
             color: var(--white);
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 3rem 1.25rem;
         }
 
         .page-header h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
         .page-header p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
@@ -133,7 +154,7 @@
 
         /* Section Services */
         section {
-            padding: 4rem 2rem;
+            padding: 2.5rem 1.25rem;
             flex: 1;
         }
 
@@ -144,8 +165,8 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .service-card {
@@ -153,15 +174,9 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             border-top: 4px solid var(--accent);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
         .img-container {
@@ -170,59 +185,93 @@
             overflow: hidden;
         }
 
-        /* Taille agrandie (440px) fixée par défaut */
         .service-img {
             width: 100%;
-            height: 440px;
+            height: auto;
+            max-height: 400px;
             object-fit: contain;
             display: block;
         }
 
         .service-content {
-            padding: 2rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
         }
 
         .service-card h3 {
             color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
         }
 
         .service-card p {
             color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-btn {
+            flex: 1;
+            text-align: center;
+            padding: 0.65rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .card-btn-wa {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .card-btn-email {
+            background-color: var(--light);
+            color: var(--primary);
+            border: 1px solid #cbd5e1;
         }
 
         /* Footer */
         footer {
             background: var(--primary);
             color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem 1rem;
             margin-top: auto;
         }
 
         .copyright {
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             opacity: 0.85;
         }
 
-        /* Responsive pour petits écrans */
+        /* Adaptation spécifique Mobile (Android & iPhone) */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                justify-content: center;
+                text-align: center;
             }
 
-            .page-header h1 {
-                font-size: 1.85rem;
+            .header-actions {
+                width: 100%;
+                justify-content: center;
             }
 
-            section {
-                padding: 3rem 1.25rem;
+            .card-actions {
+                flex-direction: column;
             }
-            
-            .service-img {
-                height: 320px;
+
+            .card-btn {
+                padding: 0.75rem 0.5rem; /* Surface d'appui plus large pour le pouce */
             }
         }
     </style>
@@ -246,39 +295,55 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="https://wa.me/237699427421" target="_blank" class="nav-rdv-btn">Prendre RDV</a>
+                <a href="https://wa.me/237699427421" target="_blank" class="nav-btn btn-whatsapp">📱 Mobile / WhatsApp</a>
+                <a href="mailto:contact@healinghands.com?subject=Demande%20de%20rendez-vous" class="nav-btn btn-email">✉️ Email</a>
             </div>
         </div>
     </header>
 
-    <!-- En-tête de la Page Domaines -->
+    <!-- En-tête de la Page -->
     <div class="page-header">
         <h1>Nos Expertises</h1>
-        <p>Découvrez l'ensemble des soins et accompagnements thérapeutique proposés au cabinet.</p>
+        <p>Découvrez l'ensemble des soins et accompagnements thérapeutiques proposés au cabinet.</p>
     </div>
 
-    <!-- Section: Domaines de prise en charge avec images agrandies d'origine -->
+    <!-- Section Domaines -->
     <section>
         <div class="container">
             <div class="services-grid">
+
                 <div class="service-card">
                     <div class="img-container">
                         <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale" class="service-img">
                     </div>
                     <div class="service-content">
-                        <h3>🦴 Kinésithérapie Générale</h3>
-                        <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
+                        <div>
+                            <h3>🦴 Kinésithérapie Générale</h3>
+                            <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://wa.me/237699427421?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20Kinésithérapie%20Générale" target="_blank" class="card-btn card-btn-wa">📱 WhatsApp</a>
+                            <a href="mailto:contact@healinghands.com?subject=RDV%20Kinésithérapie%20Générale" class="card-btn card-btn-email">✉️ Par Email</a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="service-card">
                     <div class="img-container">
                         <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img">
                     </div>
                     <div class="service-content">
-                        <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
-                        <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
+                        <div>
+                            <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
+                            <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://wa.me/237699427421?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20Kinésithérapie%20du%20Sport" target="_blank" class="card-btn card-btn-wa">📱 WhatsApp</a>
+                            <a href="mailto:contact@healinghands.com?subject=RDV%20Kinésithérapie%20du%20Sport" class="card-btn card-btn-email">✉️ Par Email</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
