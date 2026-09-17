@@ -12,6 +12,7 @@
             --light: #f4f9f6;
             --dark: #2c3e50;
             --white: #ffffff;
+            --gold: #f1c40f;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
@@ -21,18 +22,33 @@
         nav ul { display: flex; list-style: none; gap: 20px; }
         nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
         nav a:hover { opacity: 0.8; }
+        
         .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; flex: 1; }
         .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 3rem; position: relative; }
         .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 10px auto 0; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .testimonial-card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; }
-        .stars { color: #f1c40f; margin-bottom: 1rem; font-size: 1.2rem; }
-        .text { font-style: italic; color: #555; margin-bottom: 1.5rem; }
-        .author { font-weight: bold; color: var(--primary); text-align: right; }
+        
+        /* Testimonials layout */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: var(--white); padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: relative; display: flex; flex-direction: column; justify-content: space-between; }
+        .testimonial-card::before { content: "“"; font-size: 5rem; color: rgba(0, 128, 128, 0.1); position: absolute; top: 10px; left: 15px; font-family: Georgia, serif; line-height: 1; }
+        
+        .stars { color: var(--gold); margin-bottom: 1rem; font-size: 1.2rem; }
+        .quote { font-style: italic; margin-bottom: 1.5rem; color: var(--dark); z-index: 1; position: relative; }
+        .client-info { border-top: 1px solid #eee; padding-top: 1rem; }
+        .client-name { font-weight: bold; color: var(--primary); }
+        .client-treatment { font-size: 0.9rem; color: var(--secondary); }
+
+        /* Review Invitation Block */
+        .leave-review-box { text-align: center; margin-top: 4rem; background: var(--white); padding: 3rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); }
+        .leave-review-box h3 { color: var(--primary); margin-bottom: 1rem; }
+        .review-btn { display: inline-block; background-color: var(--primary); color: var(--white); text-decoration: none; padding: 0.8rem 2rem; border-radius: 25px; font-weight: bold; margin-top: 1rem; transition: background 0.3s; }
+        .review-btn:hover { background-color: var(--accent); }
+
         footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
         .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 20px; }
         .social-links a { color: var(--white); text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 20px; transition: background 0.3s; }
         .social-links a:hover { background: var(--accent); }
+
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; gap: 15px; }
             .section { padding: 2rem 1rem; }
@@ -55,41 +71,59 @@
         </div>
     </header>
 
-    <section class="section">
-        <h2 class="section-title">Témoignages de nos Patients</h2>
+    <main class="section">
+        <h2 class="section-title">Ce que disent nos patients</h2>
+        
         <div class="testimonials-grid">
+            <!-- Review 1 -->
             <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Traitée pour une tendinite à l’épaule qui traînait depuis des mois. Les soins et les exercices à la maison ont fait des miracles. Je recommande à 100 % ! »</div>
-                <div class="author">— Julie R.</div>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Après ma fracture de la cheville, j'avais peur de ne plus courir comme avant. Grâce aux séances de rééducation fonctionnelle et à l'écoute de mon thérapeute, j'ai retrouvé 100% de mes capacités."</p>
+                </div>
+                <div class="client-info">
+                    <p class="client-name">Marc T.</p>
+                    <p class="client-treatment">Rééducation fonctionnelle</p>
+                </div>
             </div>
+
+            <!-- Review 2 -->
             <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Prise en charge exceptionnelle après un accident de la route. L'équipe est douce, professionnelle et m'a aidé à retrouver ma mobilité sans stress. Merci pour tout ! »</div>
-                <div class="author">— Thomas M.</div>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Le programme d'entraînement à l'effort est incroyable. Les exercices sont adaptés et progressifs. L'ambiance du cabinet met tout de suite en confiance. Je recommande vivement !"</p>
+                </div>
+                <div class="client-info">
+                    <p class="client-name">Marie-Claire N.</p>
+                    <p class="client-treatment">Entraînement à l'effort</p>
+                </div>
             </div>
+
+            <!-- Review 3 -->
             <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Je souffrais de maux de cou chroniques à force de travailler à l'ordinateur. Dès les premières séances, j'ai ressenti un soulagement immense. Très à l'écoute. »</div>
-                <div class="author">— Amélie V.</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Des professionnels compétents et humains. Ils ont su diagnostiquer et régler ma tendinite au genou rapidement. On se sent vraiment entre de bonnes mains. »</div>
-                <div class="author">— Lucas D.</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <div class="text">« Après mon accident de voiture, j'avais d'importantes raideurs aux cervicales. Grâce à leur expertise, les maux de cou ont disparu et j'ai repris mes activités. »</div>
-                <div class="author">— Sophie L.</div>
+                <div>
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Un vrai moment d'apaisement. Les techniques de relaxation manuelle m'ont permis de soulager mes douleurs lombaires liées au stress et au travail de bureau."</p>
+                </div>
+                <div class="client-info">
+                    <p class="client-name">Jean-Pierre K.</p>
+                    <p class="client-treatment">Séance de Relaxation</p>
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- Invitation to leave feedback -->
+        <div class="leave-review-box">
+            <h3>Vous avez visité notre cabinet ?</h3>
+            <p>Votre avis est précieux et aide d'autres patients à faire le bon choix pour leur santé.</p>
+            <a href="https://wa.me" target="_blank" class="review-btn">✍️ Partager mon témoignage</a>
+        </div>
+    </main>
 
     <footer>
         <p>&copy; 2026 Healing Hands - Kinésithérapie & Réhabilitation. Tous droits réservés.</p>
         <div class="social-links">
-            <a href="https://wa.me/237699427421" target="_blank">💬 WhatsApp</a>
+            <a href="https://wa.me" target="_blank">💬 WhatsApp</a>
             <a href="#" target="_blank">📘 Facebook</a>
         </div>
     </footer>
