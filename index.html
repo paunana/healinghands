@@ -76,7 +76,7 @@
             min-height: 60px;
         }
 
-        /* Logo uniquement (texte retiré) */
+        /* Logo uniquement */
         .logo {
             display: flex;
             align-items: center;
@@ -126,7 +126,7 @@
             transform: translateY(-2px);
         }
 
-        /* Suppression du trait en dessous pour le lien actif */
+        /* Pas de trait en dessous du lien actif */
         nav a.active {
             opacity: 1;
             border-bottom: none;
@@ -195,33 +195,20 @@
             position: relative;
         }
 
-        /* Image du cabinet décalée de 1cm vers la droite */
+        /* Image statique agrandie et décalée */
         .cabinet-img img {
             width: 8cm;
             max-height: 6cm;
             object-fit: contain;
             background-color: var(--light);
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
             display: block;
-            margin: 0 auto 0 calc(auto + 1cm); /* Décalage vers la droite */
-            cursor: zoom-out;
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+            margin: 0 auto 0 calc(auto + 1cm);
+            transform: translateX(1cm) scale(2);
             position: relative;
             z-index: 30;
-        }
-
-        /* Style sous forme agrandie (par défaut) avec translation de 1cm vers la droite */
-        .cabinet-img img.zoomed {
-            transform: translateX(1cm) scale(2);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
-            z-index: 50;
-        }
-
-        /* Style si l'utilisateur clique pour réduire */
-        .cabinet-img img:not(.zoomed) {
-            transform: translateX(1cm);
-            cursor: zoom-in;
+            cursor: default;
         }
 
         /* Contact & Localisation Section */
@@ -356,12 +343,9 @@
                 height: 90px;
             }
 
-            .cabinet-img img.zoomed {
+            .cabinet-img img {
                 transform: translateX(0) scale(1.4);
-            }
-            
-            .cabinet-img img:not(.zoomed) {
-                transform: translateX(0);
+                margin: 0 auto;
             }
         }
     </style>
@@ -399,7 +383,7 @@
                     <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
                 </div>
                 <div class="cabinet-img">
-                    <img id="zoomImg" class="zoomed" src="services proposes.png" alt="Cabinet Healing Hands" onclick="toggleZoom(this)">
+                    <img src="services proposes.png" alt="Cabinet Healing Hands">
                 </div>
             </div>
         </div>
@@ -442,13 +426,6 @@
             <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
         </div>
     </footer>
-
-    <!-- Script JavaScript pour le zoom interactif -->
-    <script>
-        function toggleZoom(element) {
-            element.classList.toggle("zoomed");
-        }
-    </script>
 
 </body>
 </html>
