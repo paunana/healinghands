@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <!-- Balise viewport optimisée pour Android et iOS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Domaines de Prise en Charge - Healing Hands</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,12 +27,12 @@
             margin: 0;
             padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent; /* Supprime le rectangle gris au clic sur iOS */
+            -webkit-tap-highlight-color: transparent;
         }
 
         html, body {
             width: 100%;
-            overflow-x: hidden; /* Empêche le défilement horizontal indésirable */
+            overflow-x: hidden;
         }
 
         body {
@@ -108,6 +107,7 @@
             display: flex;
             gap: 8px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-btn {
@@ -197,7 +197,6 @@
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             flex: 1;
         }
 
@@ -209,34 +208,7 @@
 
         .service-card p {
             color: var(--text-muted);
-            margin-bottom: 1.25rem;
             font-size: 0.95rem;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .card-btn {
-            flex: 1;
-            text-align: center;
-            padding: 0.65rem 0.5rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .card-btn-wa {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        .card-btn-email {
-            background-color: var(--light);
-            color: var(--primary);
-            border: 1px solid #cbd5e1;
         }
 
         /* Footer */
@@ -253,7 +225,7 @@
             opacity: 0.85;
         }
 
-        /* Adaptation spécifique Mobile (Android & iPhone) */
+        /* Adaptation Mobile */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -265,20 +237,12 @@
                 width: 100%;
                 justify-content: center;
             }
-
-            .card-actions {
-                flex-direction: column;
-            }
-
-            .card-btn {
-                padding: 0.75rem 0.5rem; /* Surface d'appui plus large pour le pouce */
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
+    <!-- Header avec navigation et boutons de contact -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -295,7 +259,8 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="https://wa.me/237699427421" target="_blank" class="nav-btn btn-whatsapp">📱 Mobile / WhatsApp</a>
+                <a href="https://wa.me/237699427421" target="_blank" class="nav-btn btn-whatsapp">📱 +237 699 42 74 21</a>
+                <a href="https://wa.me/237675761444" target="_blank" class="nav-btn btn-whatsapp">📱 +237 675 76 14 44</a>
                 <a href="mailto:contact@healinghands.com?subject=Demande%20de%20rendez-vous" class="nav-btn btn-email">✉️ Email</a>
             </div>
         </div>
@@ -307,7 +272,7 @@
         <p>Découvrez l'ensemble des soins et accompagnements thérapeutiques proposés au cabinet.</p>
     </div>
 
-    <!-- Section Domaines -->
+    <!-- Section Domaines de Prise en Charge -->
     <section>
         <div class="container">
             <div class="services-grid">
@@ -317,14 +282,8 @@
                         <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale" class="service-img">
                     </div>
                     <div class="service-content">
-                        <div>
-                            <h3>🦴 Kinésithérapie Générale</h3>
-                            <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
-                        </div>
-                        <div class="card-actions">
-                            <a href="https://wa.me/237699427421?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20Kinésithérapie%20Générale" target="_blank" class="card-btn card-btn-wa">📱 WhatsApp</a>
-                            <a href="mailto:contact@healinghands.com?subject=RDV%20Kinésithérapie%20Générale" class="card-btn card-btn-email">✉️ Par Email</a>
-                        </div>
+                        <h3>🦴 Kinésithérapie Générale</h3>
+                        <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
                     </div>
                 </div>
 
@@ -333,14 +292,8 @@
                         <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img">
                     </div>
                     <div class="service-content">
-                        <div>
-                            <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
-                            <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
-                        </div>
-                        <div class="card-actions">
-                            <a href="https://wa.me/237699427421?text=Bonjour,%20je%20souhaite%20prendre%20RDV%20pour%20Kinésithérapie%20du%20Sport" target="_blank" class="card-btn card-btn-wa">📱 WhatsApp</a>
-                            <a href="mailto:contact@healinghands.com?subject=RDV%20Kinésithérapie%20du%20Sport" class="card-btn card-btn-email">✉️ Par Email</a>
-                        </div>
+                        <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
+                        <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
                     </div>
                 </div>
 
@@ -351,7 +304,7 @@
     <!-- Footer -->
     <footer>
         <div class="copyright">
-            <p>&copy; 2026 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
+            <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
         </div>
     </footer>
 
