@@ -30,13 +30,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Blocage du défilement avec fond animé discret */
-        html, body {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
-
         body {
             color: var(--dark);
             background: linear-gradient(-45deg, #eef7f2, #f4f9f6, #e3f2ed, #f4f9f6);
@@ -45,6 +38,7 @@
             line-height: 1.6;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
 
         @keyframes gradientBg {
@@ -76,21 +70,18 @@
             min-height: 60px;
         }
 
-        /* Logo uniquement */
         .logo {
             display: flex;
             align-items: center;
-            cursor: default;
-            user-select: none;
             position: absolute;
             left: 0;
-            top: 1.5cm;
+            top: 0.5rem;
             z-index: 10;
         }
 
         .logo img {
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             object-fit: contain;
             border-radius: 12px;
             background: var(--white);
@@ -99,7 +90,6 @@
             padding: 2px;
         }
 
-        /* Menu centré */
         nav {
             margin: 0 auto;
         }
@@ -126,12 +116,6 @@
             transform: translateY(-2px);
         }
 
-        /* Pas de trait en dessous du lien actif */
-        nav a.active {
-            opacity: 1;
-            border-bottom: none;
-        }
-
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(0, 128, 128, 0.85)), url('Session de traitement.png') center/cover no-repeat;
@@ -139,15 +123,12 @@
             text-align: center;
             padding: 2.5rem 1.25rem;
             flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
         }
 
         .hero h1 {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            animation: fadeInDown 0.8s ease-out;
         }
 
         .hero p {
@@ -155,19 +136,14 @@
             max-width: 700px;
             margin: 0 auto;
             opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out;
         }
 
-        /* Section Cabinet */
-        #cabinet {
+        /* Style uniforme pour les conteneurs d'images/logos des cartes */
+        .section-block {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(5px);
-            padding: 1.5rem 1.25rem;
-            flex: 1;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 20;
+            padding: 2rem 1.25rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .container {
@@ -176,67 +152,53 @@
             width: 100%;
         }
 
-        .cabinet-content {
+        .block-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             align-items: center;
         }
 
-        .cabinet-text {
-            /* S'assure que le texte reste à gauche */
-            grid-column: 1; 
+        .block-text h2 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
         }
 
-        .cabinet-text p {
+        .block-text p {
             color: var(--text-muted);
             margin-bottom: 1rem;
             font-size: 1rem;
         }
 
-        /* Conteneur d'image */
-        .cabinet-img {
-            text-align: center;
-            position: relative;
-            grid-column: 2; /* L'image va dans la colonne de droite */
+        /* Dimensions identiques imposées pour toutes les images de section */
+        .section-img {
             display: flex;
-            justify-content: center; /* Centre l'image dans sa colonne */
+            justify-content: center;
             align-items: center;
         }
 
-        /* Image statique agrandie et déplacée de 5cm vers la droite */
-        .cabinet-img img {
-            width: 8cm;
-            max-height: 6cm;
-            object-fit: contain;
+        .section-img img {
+            width: 280px;
+            height: 200px;
+            object-fit: cover;
             background-color: var(--light);
             border-radius: var(--radius);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
-            display: block;
-            margin: 0; /* Enlever les marges automatiques */
-            
-            /* L'image est déjà agrandie (scale 2), on la déplace de 5cm */
-            transform: translateX(5cm) scale(2); 
-            
-            position: relative;
-            z-index: 30;
-            cursor: default;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--white);
         }
 
-        /* Contact & Localisation Section */
+        /* Section Contact & Localisation */
         #contact {
             background: rgba(244, 249, 246, 0.9);
-            padding: 1.5rem 1.25rem;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 10;
+            padding: 2rem 1.25rem;
         }
 
         .section-title {
             text-align: center;
             color: var(--primary);
             font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
         }
 
         .contact-grid {
@@ -252,12 +214,6 @@
             box-shadow: var(--shadow);
             border-top: 4px solid var(--accent);
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
         }
 
         .contact-card h3 {
@@ -270,18 +226,6 @@
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.88rem;
-            transition: color 0.2s ease;
-        }
-
-        .contact-card a:hover {
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .phone-list {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
         }
 
         /* Footer */
@@ -290,9 +234,6 @@
             color: var(--white);
             padding: 0.8rem;
             margin-top: auto;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 10;
         }
 
         .copyright {
@@ -301,85 +242,33 @@
             opacity: 0.85;
         }
 
-        /* Keyframes Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Adaptation Mobile */
         @media (max-width: 768px) {
-            html, body {
-                overflow-y: auto;
-            }
-
             .nav-container {
                 flex-direction: column;
-                justify-content: center;
-                text-align: center;
             }
 
             .logo {
                 position: static;
-                top: auto;
                 margin-bottom: 10px;
             }
 
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .cabinet-content {
+            .block-content {
                 grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .cabinet-text {
-                grid-column: 1;
                 text-align: center;
             }
 
-            .cabinet-img {
-                grid-column: 1; /* L'image passe sous le texte sur mobile */
-            }
-
-            .logo img {
-                width: 90px;
-                height: 90px;
-            }
-
-            .cabinet-img img {
-                width: 100%; /* S'adapte à la largeur de l'écran */
-                max-width: 6cm; /* Mais pas trop grande */
-                max-height: auto;
-                
-                /* Sur mobile, on enlève le décalage de 5cm, on centre et on réduit le scale */
-                transform: translateX(0) scale(1.4); 
-                margin: 15px auto; 
+            .section-img img {
+                width: 100%;
+                max-width: 280px;
+                height: 180px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header avec navigation centrée -->
+    <!-- Header -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -387,9 +276,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html#cabinet" class="active">Cabinet</a></li>
-                    <li><a href="domaines.html">Domaines de prise en charge</a></li>
-                    <li><a href="temoignages.html">Témoignages</a></li>
+                    <li><a href="#cabinet">Cabinet</a></li>
+                    <li><a href="#domaines">Domaines de prise en charge</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
                 </ul>
             </nav>
         </div>
@@ -401,16 +290,49 @@
         <p>Votre centre spécialisé en kinésithérapie et rééducation fonctionnelle.</p>
     </section>
 
-    <!-- Section Cabinet -->
-    <section id="cabinet">
+    <!-- 1. Section Cabinet -->
+    <section id="cabinet" class="section-block">
         <div class="container">
-            <div class="cabinet-content">
-                <div class="cabinet-text">
+            <div class="block-content">
+                <div class="block-text">
+                    <h2>Notre Cabinet</h2>
                     <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos soins de rééducation.</p>
                     <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
                 </div>
-                <div class="cabinet-img">
+                <div class="section-img">
                     <img src="services proposes.png" alt="Cabinet Healing Hands">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Section Domaines de prise en charge -->
+    <section id="domaines" class="section-block">
+        <div class="container">
+            <div class="block-content">
+                <div class="block-text">
+                    <h2>Domaines de prise en charge</h2>
+                    <p>Nous couvrons une large gamme de soins : rééducation orthopédique, traumatologique, neurologique et pédiatrique.</p>
+                    <p>Chaque prise en charge s'appuie sur des bilans personnalisés et des protocoles thérapeutiques rigoureux.</p>
+                </div>
+                <div class="section-img">
+                    <img src="logo_domaines.png" alt="Logo Domaines de prise en charge">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Section Témoignages -->
+    <section id="temoignages" class="section-block">
+        <div class="container">
+            <div class="block-content">
+                <div class="block-text">
+                    <h2>Témoignages</h2>
+                    <p>Découvrez les retours et l'expérience de nos patients accompagnés tout au long de leur rééducation.</p>
+                    <p>Leur satisfaction et leur rétablissement sont la meilleure preuve de la qualité de nos soins.</p>
+                </div>
+                <div class="section-img">
+                    <img src="logo_temoignages.png" alt="Logo Témoignages">
                 </div>
             </div>
         </div>
@@ -422,22 +344,17 @@
             <h2 class="section-title">Contact & Localisation</h2>
             <div class="contact-grid">
                 
-                <!-- 1. Téléphone & WhatsApp -->
                 <div class="contact-card">
                     <h3>📱 Téléphone & WhatsApp</h3>
-                    <div class="phone-list">
-                        <p><a href="https://wa.me/237699427421" target="_blank">+237 699 42 74 21</a></p>
-                        <p><a href="https://wa.me/237675761444" target="_blank">+237 675 76 14 44</a></p>
-                    </div>
+                    <p><a href="https://wa.me/237699427421" target="_blank">+237 699 42 74 21</a></p>
+                    <p><a href="https://wa.me/237675761444" target="_blank">+237 675 76 14 44</a></p>
                 </div>
 
-                <!-- 2. Horaires -->
                 <div class="contact-card">
                     <h3>⏰ Horaires</h3>
                     <p>Lundi à Vendredi<br>8:00 AM - 17:00 PM</p>
                 </div>
 
-                <!-- 3. Localisation -->
                 <div class="contact-card">
                     <h3>📍 Localisation</h3>
                     <p>Cabinet Healing Hands<br>Rond Point Express Biyem Assi</p>
