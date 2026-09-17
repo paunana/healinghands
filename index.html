@@ -256,40 +256,9 @@
             font-size: 0.95rem;
         }
 
-        /* Section 3: Nos Expertises */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--accent);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.35rem;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-        }
-
-        /* Section 4: Informations Pratiques */
+        /* Section 3: Informations Pratiques */
         .info-pratiques {
-            background: var(--white);
+            background: var(--light);
         }
 
         .split-screen {
@@ -299,9 +268,10 @@
         }
 
         .info-box {
-            background: var(--light);
+            background: var(--white);
             padding: 2.5rem;
             border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
 
         .info-box h3 {
@@ -316,7 +286,7 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Section 5: Footer */
+        /* Section 4: Footer */
         footer {
             background: var(--primary);
             color: var(--white);
@@ -411,11 +381,9 @@
                     <span>Healing Hands</span>
                 </a>
             </div>
-            <!-- Navigation séparée en 3 onglets distincts -->
             <nav>
                 <ul>
                     <li><a href="#cabinet">Cabinet</a></li>
-                    <li><a href="#specialites">Spécialités</a></li>
                     <li><a href="#infos">Horaires & Tarifs</a></li>
                 </ul>
             </nav>
@@ -438,7 +406,7 @@
         </div>
     </section>
 
-    <!-- Section 2: Le Cabinet (Onglet #cabinet) -->
+    <!-- Section 2: Le Cabinet -->
     <section id="cabinet" class="about">
         <div class="container">
             <h2>Une approche humaine centrée sur votre récupération</h2>
@@ -462,24 +430,7 @@
         </div>
     </section>
 
-    <!-- Section 3: Spécialités / Domaines de prise en charge (Onglet #specialites) -->
-    <section id="specialites">
-        <div class="container">
-            <h2>Domaines de prise en charge</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>🦴 Kinésithérapie Générale</h3>
-                    <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
-                </div>
-                <div class="service-card">
-                    <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
-                    <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Horaires & Tarifs (Onglet #infos) -->
+    <!-- Section 3: Horaires & Tarifs -->
     <section id="infos" class="info-pratiques">
         <div class="container">
             <h2>Horaires & Tarifs</h2>
@@ -498,7 +449,7 @@
         </div>
     </section>
 
-    <!-- Section 5: Footer & Contact -->
+    <!-- Section 4: Footer & Contact -->
     <footer>
         <div class="footer-grid">
             <div class="footer-box">
