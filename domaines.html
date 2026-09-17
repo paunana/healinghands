@@ -144,7 +144,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
@@ -164,26 +164,18 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
-        /* Conteneur et effet d'agrandissement x2 */
         .img-container {
             width: 100%;
             background-color: var(--light);
-            cursor: zoom-in;
             overflow: hidden;
         }
 
+        /* Taille agrandie (440px) fixée par défaut */
         .service-img {
             width: 100%;
-            height: 220px; /* Taille normale */
+            height: 440px;
             object-fit: contain;
             display: block;
-            transition: height 0.3s ease;
-        }
-
-        /* Classe activée au clic pour doubler la dimension */
-        .service-img.expanded {
-            height: 440px; /* Taille x2 */
-            cursor: zoom-out;
         }
 
         .service-content {
@@ -214,7 +206,7 @@
             opacity: 0.85;
         }
 
-        /* Responsive */
+        /* Responsive pour petits écrans */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -229,8 +221,8 @@
                 padding: 3rem 1.25rem;
             }
             
-            .service-img.expanded {
-                height: 350px;
+            .service-img {
+                height: 320px;
             }
         }
     </style>
@@ -262,16 +254,16 @@
     <!-- En-tête de la Page Domaines -->
     <div class="page-header">
         <h1>Nos Expertises</h1>
-        <p>Découvrez l'ensemble des soins et accompagnements thérapeutiques proposés au cabinet.</p>
+        <p>Découvrez l'ensemble des soins et accompagnements thérapeutique proposés au cabinet.</p>
     </div>
 
-    <!-- Section: Domaines de prise en charge -->
+    <!-- Section: Domaines de prise en charge avec images agrandies d'origine -->
     <section>
         <div class="container">
             <div class="services-grid">
                 <div class="service-card">
                     <div class="img-container">
-                        <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale" class="service-img" onclick="toggleZoom(this)" title="Cliquer pour doubler la taille">
+                        <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale" class="service-img">
                     </div>
                     <div class="service-content">
                         <h3>🦴 Kinésithérapie Générale</h3>
@@ -280,7 +272,7 @@
                 </div>
                 <div class="service-card">
                     <div class="img-container">
-                        <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img" onclick="toggleZoom(this)" title="Cliquer pour doubler la taille">
+                        <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img">
                     </div>
                     <div class="service-content">
                         <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
@@ -297,13 +289,6 @@
             <p>&copy; 2026 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
         </div>
     </footer>
-
-    <!-- Script JavaScript pour basculer la taille de l'image -->
-    <script>
-        function toggleZoom(img) {
-            img.classList.toggle('expanded');
-        }
-    </script>
 
 </body>
 </html>
