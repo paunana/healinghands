@@ -48,7 +48,7 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
-            padding: 1rem;
+            padding: 0.8rem 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -65,24 +65,26 @@
             gap: 15px;
         }
 
-        /* Logo fixe non cliquable */
+        /* Logo agrandi format 4x4 */
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: var(--white);
             cursor: default;
             user-select: none;
         }
 
         .logo img {
-            width: 38px;
-            height: 38px;
+            width: 80px;
+            height: 80px;
             object-fit: cover;
             border-radius: 8px;
             background: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         nav ul {
@@ -272,12 +274,17 @@
             .cabinet-content {
                 grid-template-columns: 1fr;
             }
+
+            .logo img {
+                width: 65px;
+                height: 65px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header avec logo fixe et navigation -->
+    <!-- Header avec logo 4x4 et navigation -->
     <header>
         <div class="nav-container">
             <div class="logo">
