@@ -183,6 +183,11 @@
             align-items: center;
         }
 
+        .cabinet-text {
+            /* S'assure que le texte reste à gauche */
+            grid-column: 1; 
+        }
+
         .cabinet-text p {
             color: var(--text-muted);
             margin-bottom: 1rem;
@@ -193,9 +198,13 @@
         .cabinet-img {
             text-align: center;
             position: relative;
+            grid-column: 2; /* L'image va dans la colonne de droite */
+            display: flex;
+            justify-content: center; /* Centre l'image dans sa colonne */
+            align-items: center;
         }
 
-        /* Image statique agrandie et décalée de 3cm vers la gauche */
+        /* Image statique agrandie et déplacée de 5cm vers la droite */
         .cabinet-img img {
             width: 8cm;
             max-height: 6cm;
@@ -204,8 +213,11 @@
             border-radius: var(--radius);
             box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
             display: block;
-            margin: 0 auto;
-            transform: translateX(-3cm) scale(2);
+            margin: 0; /* Enlever les marges automatiques */
+            
+            /* L'image est déjà agrandie (scale 2), on la déplace de 5cm */
+            transform: translateX(5cm) scale(2); 
+            
             position: relative;
             z-index: 30;
             cursor: default;
@@ -336,6 +348,16 @@
 
             .cabinet-content {
                 grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cabinet-text {
+                grid-column: 1;
+                text-align: center;
+            }
+
+            .cabinet-img {
+                grid-column: 1; /* L'image passe sous le texte sur mobile */
             }
 
             .logo img {
@@ -344,8 +366,13 @@
             }
 
             .cabinet-img img {
-                transform: translateX(0) scale(1.4);
-                margin: 0 auto;
+                width: 100%; /* S'adapte à la largeur de l'écran */
+                max-width: 6cm; /* Mais pas trop grande */
+                max-height: auto;
+                
+                /* Sur mobile, on enlève le décalage de 5cm, on centre et on réduit le scale */
+                transform: translateX(0) scale(1.4); 
+                margin: 15px auto; 
             }
         }
     </style>
