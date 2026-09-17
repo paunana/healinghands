@@ -112,7 +112,7 @@
 
         /* Hero Banner Page Domaines */
         .page-header {
-            background: linear-gradient(rgba(27, 77, 62, 0.9), rgba(0, 128, 128, 0.9)), url('session-de-traitement.png') center/cover no-repeat;
+            background: linear-gradient(rgba(27, 77, 62, 0.9), rgba(0, 128, 128, 0.9)), url('Session de traitement.png') center/cover no-repeat;
             color: var(--white);
             text-align: center;
             padding: 4rem 2rem;
@@ -164,13 +164,26 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
         }
 
-        /* Styles ajustés pour afficher l'image complète */
+        /* Conteneur et effet d'agrandissement x2 */
+        .img-container {
+            width: 100%;
+            background-color: var(--light);
+            cursor: zoom-in;
+            overflow: hidden;
+        }
+
         .service-img {
             width: 100%;
-            height: 220px;
+            height: 220px; /* Taille normale */
             object-fit: contain;
-            background-color: var(--light);
             display: block;
+            transition: height 0.3s ease;
+        }
+
+        /* Classe CSS activée lors du clic pour doubler la dimension */
+        .service-img.expanded {
+            height: 440px; /* Taille x2 */
+            cursor: zoom-out;
         }
 
         .service-content {
@@ -215,6 +228,10 @@
             section {
                 padding: 3rem 1.25rem;
             }
+            
+            .service-img.expanded {
+                height: 350px; /* Adaptation responsive pour mobile */
+            }
         }
     </style>
 </head>
@@ -253,14 +270,18 @@
         <div class="container">
             <div class="services-grid">
                 <div class="service-card">
-                    <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale" class="service-img">
+                    <div class="img-container">
+                        <img src="kinesitherapie-generale.png.png" alt="Kinésithérapie Générale" class="service-img" onclick="toggleZoom(this)" title="Cliquer pour doubler la taille">
+                    </div>
                     <div class="service-content">
                         <h3>🦴 Kinésithérapie Générale</h3>
                         <p>Traitement des douleurs du dos, rhumatologie, prise en charge des entorses et rééducation post-opératoire.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img">
+                    <div class="img-container">
+                        <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport" class="service-img" onclick="toggleZoom(this)" title="Cliquer pour doubler la taille">
+                    </div>
                     <div class="service-content">
                         <h3>🏃‍♂️ Kinésithérapie du Sport</h3>
                         <p>Prévention des blessures, réathlétisation ciblée et optimisation de la performance globale pour athlètes.</p>
@@ -276,6 +297,13 @@
             <p>&copy; 2026 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- Script JavaScript pour basculer la taille de l'image -->
+    <script>
+        function toggleZoom(img) {
+            img.classList.toggle('expanded');
+        }
+    </script>
 
 </body>
 </html>
