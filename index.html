@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Healing Hands - Kinésithérapie & Rééducation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,13 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -42,7 +48,7 @@
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
-            padding: 1rem 2rem;
+            padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -55,21 +61,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo a {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             color: var(--white);
             text-decoration: none;
         }
 
         .logo img {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             object-fit: cover;
             border-radius: 8px;
             background: var(--white);
@@ -78,13 +86,14 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             opacity: 0.9;
             transition: opacity 0.2s ease;
         }
@@ -94,20 +103,32 @@
             border-bottom: 2px solid var(--white);
         }
 
-        .nav-rdv-btn {
-            background: var(--accent);
-            padding: 0.6rem 1.4rem;
-            border-radius: 50px;
-            font-weight: 600;
-            color: var(--white);
-            text-decoration: none;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-            display: inline-block;
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        .nav-rdv-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
+        .nav-btn {
+            padding: 0.5rem 0.9rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--white);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-whatsapp {
+            background: var(--accent);
+        }
+
+        .btn-email {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         /* Hero Section */
@@ -115,26 +136,25 @@
             background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(0, 128, 128, 0.85)), url('Session de traitement.png') center/cover no-repeat;
             color: var(--white);
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 5rem 1.25rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             max-width: 700px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             opacity: 0.95;
         }
 
-        /* Section Cabinet */
-        #cabinet {
-            padding: 5rem 2rem;
-            background: var(--white);
+        /* Sections communes */
+        section {
+            padding: 3.5rem 1.25rem;
         }
 
         .container {
@@ -146,7 +166,12 @@
             text-align: center;
             color: var(--primary);
             font-size: 2rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Cabinet Section */
+        #cabinet {
+            background: var(--white);
         }
 
         .cabinet-content {
@@ -168,29 +193,77 @@
             box-shadow: var(--shadow);
         }
 
+        /* Contact & Localisation Section */
+        #contact {
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--accent);
+            text-align: center;
+        }
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        .phone-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
             color: var(--white);
-            padding: 2rem;
+            padding: 1.5rem 1rem;
             margin-top: auto;
         }
 
         .copyright {
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             opacity: 0.85;
         }
 
-        /* Responsive */
+        /* Adaptation Mobile (Android & iPhone) */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.85rem;
             }
 
             .cabinet-content {
@@ -201,7 +274,7 @@
 </head>
 <body>
 
-    <!-- Navigation Header Unifié -->
+    <!-- Header avec navigation et boutons de contact -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -218,12 +291,14 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="https://wa.me/237699427421" target="_blank" class="nav-rdv-btn">Prendre RDV</a>
+                <a href="https://wa.me/237699427421" target="_blank" class="nav-btn btn-whatsapp">📱 +237 699 42 74 21</a>
+                <a href="https://wa.me/237675761444" target="_blank" class="nav-btn btn-whatsapp">📱 +237 675 76 14 44</a>
+                <a href="mailto:contact@healinghands.com?subject=Demande%20de%20rendez-vous" class="nav-btn btn-email">✉️ Email</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Banner -->
     <section class="hero">
         <h1>Bienvenue chez Healing Hands</h1>
         <p>Votre centre spécialisé en kinésithérapie et rééducation fonctionnelle.</p>
@@ -235,12 +310,40 @@
             <h2 class="section-title">Notre Cabinet</h2>
             <div class="cabinet-content">
                 <div class="cabinet-text">
-                    <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos besoins de rééducation.</p>
+                    <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos soins de rééducation.</p>
                     <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
                 </div>
                 <div class="cabinet-img">
                     <img src="Session de traitement.png" alt="Cabinet Healing Hands">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact & Localisation -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact & Localisation</h2>
+            <div class="contact-grid">
+                
+                <div class="contact-card">
+                    <h3>📍 Localisation</h3>
+                    <p>Cabinet Healing Hands<br>Douala / Yaoundé, Cameroun</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>📱 Téléphone & WhatsApp</h3>
+                    <div class="phone-list">
+                        <p><a href="https://wa.me/237699427421" target="_blank">+237 699 42 74 21</a></p>
+                        <p><a href="https://wa.me/237675761444" target="_blank">+237 675 76 14 44</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <h3>✉️ Adresse Email</h3>
+                    <p><a href="mailto:contact@healinghands.com">contact@healinghands.com</a></p>
+                </div>
+
             </div>
         </div>
     </section>
