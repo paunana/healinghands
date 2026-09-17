@@ -171,6 +171,8 @@
             flex: 1;
             display: flex;
             align-items: center;
+            position: relative;
+            z-index: 20;
         }
 
         .container {
@@ -192,7 +194,13 @@
             font-size: 1rem;
         }
 
-        /* Image du cabinet cliquable */
+        /* Conteneur d'image */
+        .cabinet-img {
+            text-align: center;
+            position: relative;
+        }
+
+        /* Image du cabinet avec zoom sur place */
         .cabinet-img img {
             width: 8cm;
             max-height: 6cm;
@@ -203,54 +211,21 @@
             display: block;
             margin: 0 auto;
             cursor: zoom-in;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+            position: relative;
+            z-index: 30;
         }
 
         .cabinet-img img:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Modale d'agrandissement d'image */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            justify-content: center;
-            align-items: center;
+        /* Classe appliquée lors du clic pour doubler la taille */
+        .cabinet-img img.zoomed {
+            transform: scale(2);
             cursor: zoom-out;
-        }
-
-        .modal-content {
-            max-width: 90vw;
-            max-height: 90vh;
-            transform: scale(1);
-            transition: transform 0.3s ease;
-            border-radius: var(--radius);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            cursor: pointer;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: var(--white);
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-            transition: color 0.2s ease;
-        }
-
-        .close-btn:hover {
-            color: var(--accent);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+            z-index: 50;
         }
 
         /* Contact & Localisation Section */
@@ -258,6 +233,8 @@
             background: rgba(244, 249, 246, 0.9);
             padding: 1.5rem 1.25rem;
             flex-shrink: 0;
+            position: relative;
+            z-index: 10;
         }
 
         .section-title {
@@ -319,6 +296,8 @@
             padding: 0.8rem;
             margin-top: auto;
             flex-shrink: 0;
+            position: relative;
+            z-index: 10;
         }
 
         .copyright {
@@ -380,6 +359,10 @@
                 width: 90px;
                 height: 90px;
             }
+
+            .cabinet-img img.zoomed {
+                transform: scale(1.4);
+            }
         }
     </style>
 </head>
@@ -417,17 +400,11 @@
                     <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
                 </div>
                 <div class="cabinet-img">
-                    <img id="zoomableImg" src="services proposes.png" alt="Cabinet Healing Hands" onclick="openModal(this)">
+                    <img id="zoomImg" src="services proposes.png" alt="Cabinet Healing Hands" onclick="toggleZoom(this)">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Modale d'agrandissement d'image -->
-    <div id="imgModal" class="modal" onclick="closeModal()">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-    </div>
 
     <!-- Section Contact & Localisation -->
     <section id="contact">
@@ -467,17 +444,10 @@
         </div>
     </footer>
 
-    <!-- Script JavaScript pour la modale d'agrandissement -->
+    <!-- Script JavaScript pour le zoom interactif -->
     <script>
-        function openModal(element) {
-            const modal = document.getElementById("imgModal");
-            const modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex";
-            modalImg.src = element.src;
-        }
-
-        function closeModal() {
-            document.getElementById("imgModal").style.display = "none";
+        function toggleZoom(element) {
+            element.classList.toggle("zoomed");
         }
     </script>
 
