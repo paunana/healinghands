@@ -79,7 +79,7 @@
         }
 
         .section {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 3rem auto;
             padding: 0 2rem;
         }
@@ -97,6 +97,40 @@
             height: 3px;
             background: var(--accent);
             margin: 10px auto 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .contact-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        .contact-info p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        .info-item {
+            margin-bottom: 1.2rem;
+        }
+        .info-item h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        .info-item p {
+            margin-bottom: 0;
+            color: #333;
         }
 
         .contact-form-container {
@@ -149,6 +183,7 @@
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; }
             .section { padding: 0 1rem; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -172,26 +207,48 @@
     <main>
         <section class="section">
             <h2 class="section-title">Contact</h2>
-            <div class="contact-form-container">
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact</h3>
+                    <p>N'hésitez pas à nous contacter pour toute demande d'information ou pour prendre rendez-vous.</p>
+                    
+                    <div class="info-item">
+                        <h4>Adresse</h4>
+                        <p>123 Avenue de la Santé<br>75000 Paris</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail</label>
-                        <input type="email" id="email" name="email" required>
+                    
+                    <div class="info-item">
+                        <h4>Téléphone</h4>
+                        <p>01 23 45 67 89</p>
                     </div>
-                    <div class="form-group">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" required>
+                    
+                    <div class="info-item">
+                        <h4>Email</h4>
+                        <p>contact@healinghands.fr</p>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Envoyer</button>
-                </form>
+                </div>
+
+                <div class="contact-form-container">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Adresse e-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Envoyer</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
