@@ -99,10 +99,9 @@
             margin: 10px auto 0;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+        .contact-container {
+            display: flex;
+            justify-content: center;
         }
 
         .contact-info {
@@ -110,6 +109,8 @@
             border-radius: 12px;
             padding: 2.5rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 600px;
+            width: 100%;
         }
         .contact-info h3 {
             color: var(--primary);
@@ -133,57 +134,11 @@
             color: #333;
         }
 
-        .contact-form-container {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .submit-btn {
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            width: 100%;
-        }
-        .submit-btn:hover {
-            background: var(--primary);
-        }
-
         footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
 
         @media (max-width: 768px) {
             .nav-container { flex-direction: column; }
             .section { padding: 0 1rem; }
-            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -207,9 +162,9 @@
     <main>
         <section class="section">
             <h2 class="section-title">Contact</h2>
-            <div class="contact-grid">
+            <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Contact</h3>
+                    <h3>Nos Coordonnées</h3>
                     <p>N'hésitez pas à nous contacter pour toute demande d'information ou pour prendre rendez-vous.</p>
                     
                     <div class="info-item">
@@ -226,28 +181,6 @@
                         <h4>Email</h4>
                         <p>clinic.healinghands-kine@gmail.com</p>
                     </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Adresse e-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Envoyer</button>
-                    </form>
                 </div>
             </div>
         </section>
