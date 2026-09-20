@@ -15,30 +15,88 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
-        nav a:hover { opacity: 0.8; }
         
+        /* Header & Navigation Centrée */
+        header { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            color: var(--white); 
+            padding: 0.8rem 1rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        .logo { display: flex; align-items: center; cursor: default; user-select: none; }
+        
+        /* Dimensions exactes du logo */
+        .logo img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 4px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* Menu de navigation centralisé */
+        nav { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
+        }
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 15px; 
+            justify-content: center; 
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
+        nav a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 0.4rem 0.8rem; 
+            border-radius: 6px; 
+            transition: background 0.2s, transform 0.2s; 
+        }
+        nav a:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            transform: translateY(-2px);
+        }
+        nav a.active { 
+            background: rgba(255, 255, 255, 0.2); 
+            font-weight: 600; 
+        }
+        
+        /* Section À Propos */
         .section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; flex: 1; }
         .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 2rem; position: relative; }
         .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 10px auto 0; }
         
         .about-content { background: var(--white); padding: 3rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .about-content p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 3rem; }
         .value-card { background: var(--light); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent); }
         .value-card h4 { color: var(--primary); margin-bottom: 0.5rem; }
 
         footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
-        .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { color: var(--white); text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 20px; transition: background 0.3s; }
-        .social-links a:hover { background: var(--accent); }
 
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
+            .nav-container { flex-direction: column; }
             .section { padding: 2rem 1rem; }
             .about-content { padding: 1.5rem; }
         }
@@ -47,12 +105,14 @@
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">🌿 Healing Hands</div>
+            <div class="logo">
+                <img src="logo.png" alt="Logo Healing Hands">
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="services.html">Services</a></li>
-                    <li><a href="a-propos.html">À Propos</a></li>
+                    <li><a href="a-propos.html" class="active">À Propos</a></li>
                     <li><a href="temoignages.html">Témoignages</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -61,34 +121,31 @@
     </header>
 
     <main class="section">
-        <h2 class="section-title">À Propos de Nous</h2>
+        <h2 class="section-title">À Propos de Healing Hands</h2>
+        
         <div class="about-content">
-            <p>Bienvenue chez <strong>Healing Hands</strong>. Notre cabinet de kinésithérapie et de réhabilitation fonctionnelle est dédié à la restauration de votre santé physique et de votre bien-être général.</p>
-            <p>Nous croyons fermement qu'un accompagnement réussi repose sur une écoute attentive et des soins sur mesure. Que vous cherchiez à vous remettre d'une blessure, à soulager des douleurs chroniques ou simplement à évacuer le stress quotidien, notre approche thérapeutique moderne s'adapte précisément à vos objectifs personnels.</p>
+            <p><strong>Healing Hands</strong> est un cabinet de kinésithérapie et de rééducation fonctionnelle dédié au bien-être, à la santé et au rétablissement personnalisé de chaque patient.</p>
+            <p>Notre équipe de professionnels qualifiés vous accompagne avec bienveillance à chaque étape de votre traitement, en utilisant des techniques modernes et un équipement adapté à vos besoins spécifiques.</p>
             
             <div class="values-grid">
                 <div class="value-card">
-                    <h4>Professionalisme</h4>
-                    <p>Des techniques thérapeutiques éprouvées basées sur des pratiques fondées sur les preuves.</p>
+                    <h4>🌱 Bienveillance</h4>
+                    <p>Une écoute attentive pour un suivi adapté et humain.</p>
                 </div>
                 <div class="value-card">
-                    <h4>Écoute active</h4>
-                    <p>Chaque corps est unique. Nous concevons un plan adapté uniquement à votre rythme.</p>
+                    <h4>⚡ Expertise</h4>
+                    <p>Des soins fondés sur des compétences techniques éprouvées.</p>
                 </div>
                 <div class="value-card">
-                    <h4>Bienveillance</h4>
-                    <p>Un environnement serein et accueillant pour effectuer votre rééducation en toute confiance.</p>
+                    <h4>🤝 Engagement</h4>
+                    <p>Un accompagnement complet pour votre autonomie et confort.</p>
                 </div>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2019 Healing Hands - Kinésithérapie & Réhabilitation. Tous droits réservés.</p>
-        <div class="social-links">
-            <a href="https://wa.me" target="_blank">💬 WhatsApp</a>
-            <a href="#" target="_blank">📘 Facebook</a>
-        </div>
+        <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
