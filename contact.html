@@ -112,11 +112,6 @@
             max-width: 600px;
             width: 100%;
         }
-        .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
         .contact-info p {
             margin-bottom: 1.5rem;
             color: #555;
@@ -132,6 +127,16 @@
         .info-item p {
             margin-bottom: 0;
             color: #333;
+        }
+        .email-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .email-link:hover {
+            color: var(--accent);
+            text-decoration: underline;
         }
 
         footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
@@ -164,7 +169,6 @@
             <h2 class="section-title">Contact</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Nos Coordonnées</h3>
                     <p>N'hésitez pas à nous contacter pour toute demande d'information ou pour prendre rendez-vous.</p>
                     
                     <div class="info-item">
@@ -179,7 +183,7 @@
                     
                     <div class="info-item">
                         <h4>Email</h4>
-                        <p>clinic.healinghands-kine@gmail.com</p>
+                        <p><a href="mailto:clinic.healinghands-kine@gmail.com" class="email-link">clinic.healinghands-kine@gmail.com</a></p>
                     </div>
                 </div>
             </div>
