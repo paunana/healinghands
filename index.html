@@ -142,20 +142,32 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
-        /* Style ajusté pour que toutes les images gardent exactement la même taille */
-        .card img {
+        /* Conteneur de l'image pour garder un fond propre */
+        .card-img-container {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
+            height: 240px;
+            background-color: #f0f4f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Style ajusté pour afficher CHAQUE IMAGE EN ENTIER sans rognage */
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             display: block;
         }
         .card-body {
             padding: 1.5rem;
+            flex-grow: 1;
         }
         .card-body h3 {
             color: var(--primary);
@@ -204,7 +216,9 @@
             <h2 class="section-title">Découvrir Notre Cabinet & Soins</h2>
             <div class="gallery-grid">
                 <div class="card">
-                    <img src="session de traitement.png" alt="Session de traitement">
+                    <div class="card-img-container">
+                        <img src="session de traitement.png" alt="Session de traitement">
+                    </div>
                     <div class="card-body">
                         <h3>Session de Traitement</h3>
                         <p>Des soins personnalisés et adaptés avec un suivi attentif pour chaque patient.</p>
@@ -212,7 +226,9 @@
                 </div>
 
                 <div class="card">
-                    <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale">
+                    <div class="card-img-container">
+                        <img src="kinesitherapie-generale.png" alt="Kinésithérapie Générale">
+                    </div>
                     <div class="card-body">
                         <h3>Kinésithérapie Générale</h3>
                         <p>Prise en charge globale des douleurs articulaires, musculaires et rééducation du dos.</p>
@@ -220,7 +236,9 @@
                 </div>
 
                 <div class="card">
-                    <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport">
+                    <div class="card-img-container">
+                        <img src="kinesitherapie-sport.png" alt="Kinésithérapie du Sport">
+                    </div>
                     <div class="card-body">
                         <h3>Kinésithérapie du Sport</h3>
                         <p>Accompagnement ciblé des athlètes pour la récupération et la prévention des blessures.</p>
