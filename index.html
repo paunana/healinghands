@@ -2,262 +2,128 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Healing Hands - Kinésithérapie & Rééducation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Healing Hands</title>
     <style>
         :root {
             --primary: #1b4d3e;
-            --primary-hover: #143b2f;
             --secondary: #008080;
             --accent: #2e8b57;
-            --accent-hover: #236c43;
             --light: #f4f9f6;
-            --dark: #1e293b;
-            --text-muted: #64748b;
+            --dark: #2c3e50;
             --white: #ffffff;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-            --radius: 12px;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent;
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        /* Header & Navigation Centrée */
+        header { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            color: var(--white); 
+            padding: 0.8rem 1rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
         }
-        html, body {
-            width: 100%;
-            min-height: 100vh;
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 15px; 
         }
-        body {
-            color: var(--dark);
-            background: linear-gradient(-45deg, #eef7f2, #f4f9f6, #e3f2ed, #f4f9f6);
-            background-size: 400% 400%;
-            animation: gradientBg 15s ease infinite;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-        }
-        @keyframes gradientBg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        /* Navigation Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 0.8rem 1rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            flex-shrink: 0;
-            position: relative;
-            z-index: 100;
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            min-height: 60px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            cursor: default;
-            user-select: none;
-            z-index: 10;
-        }
+        .logo { display: flex; align-items: center; cursor: default; user-select: none; }
+        
+        /* Dimensions exactes du logo */
         .logo img {
-            width: 4cm;
-            height: 4cm;
+            width: 140px;
+            height: 140px;
             object-fit: contain;
             border-radius: 12px;
             background: var(--white);
             border: 2px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            padding: 2px;
+            padding: 4px;
             display: block;
+            flex-shrink: 0;
         }
-        /* Menu Navigation Centralisé */
-        nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
+
+        /* Menu de navigation centralisé */
+        nav { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
         }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 15px; 
+            justify-content: center; 
+            align-items: center; 
+            flex-wrap: wrap; 
         }
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            display: inline-block;
-            text-align: center;
+        nav a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 0.4rem 0.8rem; 
+            border-radius: 6px; 
+            transition: background 0.2s, transform 0.2s; 
         }
-        nav a:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.15);
+        nav a:hover { 
+            background: rgba(255, 255, 255, 0.15); 
             transform: translateY(-2px);
         }
-        nav a.active {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: 600;
+        nav a.active { 
+            background: rgba(255, 255, 255, 0.2); 
+            font-weight: 600; 
         }
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(0, 128, 128, 0.85)), url('Session de traitement.png') center/cover no-repeat;
-            color: var(--white);
             text-align: center;
-            padding: 2.5rem 1.25rem;
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
+            padding: 5rem 2rem;
+            background: var(--white);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
         .hero h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
-        .hero p {
-            font-size: 1rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        /* Section Cabinet */
-        #cabinet {
-            background: var(--white);
-            padding: 3rem 1.25rem;
-        }
-        .cabinet-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-        .cabinet-text p {
-            font-size: 1rem;
-            color: var(--dark);
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 1rem;
         }
-        .cabinet-img img {
-            width: 100%;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            object-fit: cover;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #555;
         }
-        /* Contact & Localisation Section */
-        #contact {
-            background: rgba(244, 249, 246, 0.9);
-            padding: 2.5rem 1.25rem;
-            flex: 1;
-            position: relative;
-            z-index: 10;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .section-title {
-            text-align: center;
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .contact-card {
-            background: var(--white);
-            padding: 1rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--accent);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-        }
-        .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.4rem;
-            font-size: 1rem;
-        }
-        .contact-card p, .contact-card a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.88rem;
-            transition: color 0.2s ease;
-        }
-        .contact-card a:hover {
-            color: var(--accent);
-            font-weight: 600;
-        }
-        .phone-list {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-        /* Footer */
-        footer {
-            background: var(--primary);
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
             color: var(--white);
-            padding: 0.8rem;
-            margin-top: auto;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 10;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
         }
-        .copyright {
-            text-align: center;
-            font-size: 0.78rem;
-            opacity: 0.85;
+        .cta-btn:hover {
+            background: var(--primary);
         }
-        /* Keyframes Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 900px) {
-            .nav-container {
-                flex-direction: column;
-                justify-content: center;
-            }
-            .cabinet-content {
-                grid-template-columns: 1fr;
-            }
+
+        footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; }
+            .hero { padding: 3rem 1rem; }
+            .hero h1 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header avec navigation centrée -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -265,8 +131,9 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#cabinet" class="active">Cabinet</a></li>
-                    <li><a href="domaines.html">Domaines de prise en charge</a></li>
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="a-propos.html">À Propos</a></li>
                     <li><a href="temoignages.html">Témoignages</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -274,60 +141,16 @@
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="hero">
-        <h1>Bienvenue chez Healing Hands</h1>
-        <p>Votre centre spécialisé en kinésithérapie et rééducation fonctionnelle.</p>
-    </section>
+    <main>
+        <section class="hero">
+            <h1>Bienvenue chez Healing Hands</h1>
+            <p>Votre cabinet de kinésithérapie et de rééducation fonctionnelle dédié à votre santé et votre bien-être au quotidien.</p>
+            <a href="contact.html" class="cta-btn">Prendre Rendez-vous</a>
+        </section>
+    </main>
 
-    <!-- Section Cabinet -->
-    <section id="cabinet">
-        <div class="container">
-            <h2 class="section-title">Le Cabinet</h2>
-            <div class="cabinet-content">
-                <div class="cabinet-text">
-                    <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos soins de rééducation.</p>
-                    <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
-                </div>
-                <div class="cabinet-img">
-                    <img src="services proposes.png" alt="Cabinet Healing Hands">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Contact & Localisation -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact & Localisation</h2>
-            <div class="contact-grid">
-                <!-- 1. Téléphone & WhatsApp -->
-                <div class="contact-card">
-                    <h3>📱 Téléphone & WhatsApp</h3>
-                    <div class="phone-list">
-                        <p><a href="https://wa.me/237699427421" target="_blank">+237 699 42 74 21</a></p>
-                        <p><a href="https://wa.me/237675761444" target="_blank">+237 675 76 14 44</a></p>
-                    </div>
-                </div>
-                <!-- 2. Horaires -->
-                <div class="contact-card">
-                    <h3>⏰ Horaires</h3>
-                    <p>Lundi à Vendredi<br>8:00 AM - 17:00 PM</p>
-                </div>
-                <!-- 3. Localisation -->
-                <div class="contact-card">
-                    <h3>📍 Localisation</h3>
-                    <p>Cabinet Healing Hands<br>Rond Point Express Biyem Assi</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="copyright">
-            <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
-        </div>
+        <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
