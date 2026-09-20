@@ -15,24 +15,86 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--white); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav a { color: var(--white); text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
-        nav a:hover { opacity: 0.8; }
+        
+        /* Header & Navigation Centrée */
+        header { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            color: var(--white); 
+            padding: 0.8rem 1rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        .logo { display: flex; align-items: center; cursor: default; user-select: none; }
+        
+        /* Logo de la page d'accueil */
+        .logo img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 12px;
+            background: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 4px;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        /* Menu de navigation centralisé */
+        nav { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
+        }
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 15px; 
+            justify-content: center; 
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
+        nav a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 0.4rem 0.8rem; 
+            border-radius: 6px; 
+            transition: background 0.2s, transform 0.2s; 
+        }
+        nav a:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            transform: translateY(-2px);
+        }
+        nav a.active { 
+            background: rgba(255, 255, 255, 0.2); 
+            font-weight: 600; 
+        }
+        
+        /* Section Services */
         .section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; flex: 1; }
         .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 3rem; position: relative; }
         .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent); margin: 10px auto 0; }
+        
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary); text-align: center; }
+        .service-card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary); transition: transform 0.2s; }
+        .service-card:hover { transform: translateY(-5px); }
         .service-card h3 { color: var(--primary); margin-bottom: 1rem; }
+
         footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
-        .social-links { margin-top: 1rem; display: flex; justify-content: center; gap: 20px; }
-        .social-links a { color: var(--white); text-decoration: none; font-weight: bold; background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 20px; transition: background 0.3s; }
-        .social-links a:hover { background: var(--accent); }
+
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
+            .nav-container { flex-direction: column; }
             .section { padding: 2rem 1rem; }
         }
     </style>
@@ -40,11 +102,13 @@
 <body>
     <header>
         <div class="nav-container">
-            <div class="logo">🌿 Healing Hands</div>
+            <div class="logo">
+                <img src="logo.png" alt="Logo Healing Hands">
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
                     <li><a href="a-propos.html">À Propos</a></li>
                     <li><a href="temoignages.html">Témoignages</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -53,30 +117,27 @@
         </div>
     </header>
 
-    <section class="section">
+    <main class="section">
         <h2 class="section-title">Nos Services</h2>
+        
         <div class="services-grid">
             <div class="service-card">
-                <h3>Rééducation fonctionnelle</h3>
-                <p>Restauration de vos capacités physiques et de votre mobilité après une blessure, une chirurgie ou une perte d'autonomie.</p>
+                <h3>🦴 Kinésithérapie Généraliste</h3>
+                <p>Prise en charge des douleurs musculaires, articulaires, du mal de dos et rééducation fonctionnelle globale.</p>
             </div>
             <div class="service-card">
-                <h3>Relaxation</h3>
-                <p>Techniques manuelles et séances dédiées à l'apaisement des tensions musculaires et à la réduction du stress global.</p>
+                <h3>🏃 Kinésithérapie du Sport</h3>
+                <p>Accompagnement des sportifs dans la prévention des blessures, le traitement des traumatismes et la réathlétisation.</p>
             </div>
             <div class="service-card">
-                <h3>Entraînement à l'effort</h3>
-                <p>Programmes personnalisés pour réhabituer votre corps au mouvement, améliorer l'endurance et renforcer votre santé globale.</p>
+                <h3>🤲 Massage Thérapeutique</h3>
+                <p>Soins visant à soulager les tensions musculaires, améliorer la circulation et favoriser la récupération musculaire.</p>
             </div>
         </div>
-    </section>
+    </main>
 
     <footer>
-        <p>&copy; 2019 Healing Hands - Kinésithérapie & Réhabilitation. Tous droits réservés.</p>
-        <div class="social-links">
-            <a href="https://wa.me/237699427421" target="_blank">💬 WhatsApp</a>
-            <a href="#" target="_blank">📘 Facebook</a>
-        </div>
+        <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
