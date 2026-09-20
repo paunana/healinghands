@@ -65,7 +65,6 @@
             gap: 15px;
             min-height: 60px;
         }
-        /* Logo aligné en 4cm x 4cm */
         .logo {
             display: flex;
             align-items: center;
@@ -84,7 +83,6 @@
             padding: 2px;
             display: block;
         }
-        /* Menu Navigation */
         nav ul {
             display: flex;
             list-style: none;
@@ -106,7 +104,7 @@
         }
         nav a.active {
             opacity: 1;
-            border-bottom: none;
+            border-bottom: 2px solid var(--white);
         }
         /* Hero Section */
         .hero {
@@ -130,6 +128,28 @@
             margin: 0 auto;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease-out;
+        }
+        /* Section Cabinet */
+        #cabinet {
+            background: var(--white);
+            padding: 3rem 1.25rem;
+        }
+        .cabinet-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        .cabinet-text p {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        .cabinet-img img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
         }
         /* Contact & Localisation Section */
         #contact {
@@ -212,11 +232,13 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* Adaptation pour tablettes et ordinateurs portables */
         @media (max-width: 900px) {
             .nav-container {
                 flex-direction: column;
                 justify-content: center;
+            }
+            .cabinet-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -230,6 +252,7 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="#cabinet" class="active">Cabinet</a></li>
                     <li><a href="domaines.html">Domaines de prise en charge</a></li>
                     <li><a href="temoignages.html">Témoignages</a></li>
                     <li><a href="contact.html">Contact</a></li>
@@ -242,6 +265,22 @@
     <section class="hero">
         <h1>Bienvenue chez Healing Hands</h1>
         <p>Votre centre spécialisé en kinésithérapie et rééducation fonctionnelle.</p>
+    </section>
+
+    <!-- Section Cabinet -->
+    <section id="cabinet">
+        <div class="container">
+            <h2 class="section-title">Le Cabinet</h2>
+            <div class="cabinet-content">
+                <div class="cabinet-text">
+                    <p>Le cabinet Healing Hands vous accueille dans un cadre moderne et adapté à vos soins de rééducation.</p>
+                    <p>Nous mettons tout en œuvre pour vous proposer un accompagnement sur-mesure afin de vous aider à retrouver mobilité et bien-être au quotidien.</p>
+                </div>
+                <div class="cabinet-img">
+                    <img src="services proposes.png" alt="Cabinet Healing Hands">
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Section Contact & Localisation -->
