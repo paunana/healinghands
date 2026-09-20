@@ -12,6 +12,7 @@
             --light: #f4f9f6;
             --dark: #2c3e50;
             --white: #ffffff;
+            --whatsapp: #25d366;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
@@ -128,14 +129,24 @@
             margin-bottom: 0;
             color: #333;
         }
-        .email-link {
+        .contact-link {
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s;
         }
-        .email-link:hover {
+        .contact-link:hover {
             color: var(--accent);
+            text-decoration: underline;
+        }
+        .whatsapp-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .whatsapp-link:hover {
+            color: #128c7e;
             text-decoration: underline;
         }
 
@@ -177,13 +188,16 @@
                     </div>
                     
                     <div class="info-item">
-                        <h4>Téléphone</h4>
-                        <p>+237 699 42 74 21 / +237 675 76 12 44</p>
+                        <h4>Téléphone (WhatsApp)</h4>
+                        <p>
+                            <a href="https://wa.me/237699427421" target="_blank" class="whatsapp-link">+237 699 42 74 21</a> / 
+                            <a href="https://wa.me/237675761244" target="_blank" class="whatsapp-link">+237 675 76 12 44</a>
+                        </p>
                     </div>
                     
                     <div class="info-item">
                         <h4>Email</h4>
-                        <p><a href="mailto:clinic.healinghands-kine@gmail.com" class="email-link">clinic.healinghands-kine@gmail.com</a></p>
+                        <p><a href="mailto:clinic.healinghands-kine@gmail.com" class="contact-link">clinic.healinghands-kine@gmail.com</a></p>
                     </div>
                 </div>
             </div>
