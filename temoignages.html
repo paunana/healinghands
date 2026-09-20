@@ -2,71 +2,41 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Témoignages - Healing Hands</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #1b4d3e;
-            --primary-hover: #143b2f;
             --secondary: #008080;
             --accent: #2e8b57;
-            --accent-hover: #236c43;
             --light: #f4f9f6;
-            --dark: #1e293b;
-            --text-muted: #64748b;
+            --dark: #2c3e50;
             --white: #ffffff;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-            --radius: 12px;
+            --star-color: #f39c12;
+            --star-empty: #ccc;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent;
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--dark); background-color: var(--light); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        header { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+            color: var(--white); 
+            padding: 0.8rem 1rem; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
         }
-        html, body {
-            width: 100%;
-            overflow-x: hidden;
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 15px; 
         }
-        body {
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        /* Navigation Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 0.8rem 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            min-height: 60px;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            cursor: default;
-            user-select: none;
-            z-index: 10;
-        }
-        /* Dimensions identiques du logo */
+        .logo { display: flex; align-items: center; cursor: default; user-select: none; }
+        
         .logo img {
             width: 140px;
             height: 140px;
@@ -79,139 +49,122 @@
             display: block;
             flex-shrink: 0;
         }
-        /* Menu Navigation Centralisé */
-        nav {
-            flex: 1;
-            display: flex;
-            justify-content: center;
+
+        nav { 
+            flex: 1; 
+            display: flex; 
+            justify-content: center; 
         }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+            gap: 15px; 
+            justify-content: center; 
+            align-items: center; 
+            flex-wrap: wrap; 
         }
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            display: inline-block;
-            text-align: center;
+        nav a { 
+            color: var(--white); 
+            text-decoration: none; 
+            font-weight: 500; 
+            padding: 0.4rem 0.8rem; 
+            border-radius: 6px; 
+            transition: background 0.2s, transform 0.2s; 
         }
-        nav a:hover {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.15);
+        nav a:hover { 
+            background: rgba(255, 255, 255, 0.15); 
             transform: translateY(-2px);
         }
-        nav a.active {
-            opacity: 1;
-            background: rgba(255, 255, 255, 0.2);
-            font-weight: 600;
+        nav a.active { 
+            background: rgba(255, 255, 255, 0.2); 
+            font-weight: 600; 
         }
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(rgba(27, 77, 62, 0.9), rgba(0, 128, 128, 0.9)), url('Session de traitement.png') center/cover no-repeat;
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 1.25rem;
-        }
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .page-header p {
-            font-size: 1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        /* Section Témoignages */
-        section {
-            padding: 3rem 1.25rem;
-            flex: 1;
-        }
-        .container {
+
+        .section {
             max-width: 1100px;
-            margin: 0 auto;
+            margin: 3rem auto;
+            padding: 0 2rem;
         }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+        }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
+
         .testimonial-card {
             background: var(--white);
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            border-left: 5px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1rem;
+        }
+        .star {
+            width: 20px;
+            height: 20px;
+            fill: var(--star-color);
+        }
+        .star.empty {
+            fill: var(--star-empty);
+        }
+
         .testimonial-text {
-            color: var(--dark);
+            color: #555;
             font-style: italic;
             margin-bottom: 1.5rem;
-            font-size: 0.98rem;
+            flex-grow: 1;
         }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+
+        .author-info {
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
         }
-        .author-avatar {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--light);
+        .author-name {
+            font-weight: 600;
             color: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: 2px solid var(--accent);
         }
-        .author-info h4 {
-            color: var(--primary);
-            font-size: 1rem;
-        }
-        .author-info p {
-            color: var(--text-muted);
+        .author-role {
             font-size: 0.85rem;
+            color: #888;
         }
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 1.5rem 1rem;
-            margin-top: auto;
-        }
-        .copyright {
-            text-align: center;
-            font-size: 0.85rem;
-            opacity: 0.85;
-        }
-        /* Adaptation Mobile */
-        @media (max-width: 900px) {
-            .nav-container {
-                flex-direction: column;
-                justify-content: center;
-            }
+
+        footer { background: var(--primary); color: var(--white); padding: 2rem; text-align: center; margin-top: auto; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; }
+            .section { padding: 0 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Header avec navigation et logo -->
     <header>
         <div class="nav-container">
             <div class="logo">
@@ -228,57 +181,107 @@
         </div>
     </header>
 
-    <!-- En-tête de la Page -->
-    <div class="page-header">
-        <h1>Témoignages & Avis</h1>
-        <p>Découvrez les retours d'expérience de nos patients accompagnés au cabinet.</p>
-    </div>
-
-    <!-- Section Avis Patients -->
-    <section>
-        <div class="container">
+    <main>
+        <section class="section">
+            <h2 class="section-title">Ce que disent nos patients</h2>
             <div class="testimonials-grid">
+                
+                <!-- Témoignage 1 (5 étoiles) -->
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Un accueil très chaleureux et une prise en charge d'une grande qualité. Mes douleurs de dos ont rapidement diminué grâce aux séances de kinésithérapie."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">M</div>
-                        <div class="author-info">
-                            <h4>Marc A.</h4>
-                            <p>Prise en charge du dos</p>
+                    <div>
+                        <div class="stars">
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                         </div>
+                        <p class="testimonial-text">"Une prise en charge exceptionnelle suite à une entorse de la cheville. L'équipe est à l'écoute, très professionnelle et les résultats ont été très rapides."</p>
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Marie E.</div>
+                        <div class="author-role">Rééducation fonctionnelle</div>
                     </div>
                 </div>
 
+                <!-- Témoignage 2 (5 étoiles) -->
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Professionnalisme et bienveillance au rendez-vous. La rééducation après ma blessure sportive s'est faite en toute sécurité."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">S</div>
-                        <div class="author-info">
-                            <h4>Sophie T.</h4>
-                            <p>Kinésithérapie du sport</p>
+                    <div>
+                        <div class="stars">
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                         </div>
+                        <p class="testimonial-text">"Cabinet très bien équipé et une ambiance rassurante. Mes douleurs chroniques de dos ont considérablement diminué après quelques séances."</p>
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Jean-Marc T.</div>
+                        <div class="author-role">Soin du dos</div>
                     </div>
                 </div>
 
+                <!-- Témoignage 3 (5 étoiles) -->
                 <div class="testimonial-card">
-                    <p class="testimonial-text">"Cabinet très propre, équipement adapté et accompagnement personnalisé à chaque étape de mon traitement."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">P</div>
-                        <div class="author-info">
-                            <h4>Paul K.</h4>
-                            <p>Rééducation fonctionnelle</p>
+                    <div>
+                        <div class="stars">
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                         </div>
+                        <p class="testimonial-text">"Un accueil chaleureux et une rigueur remarquable. Je recommande les yeux fermés Healing Hands pour tout besoin en kinésithérapie !"</p>
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Carine N.</div>
+                        <div class="author-role">Suivi post-opératoire</div>
                     </div>
                 </div>
+
+                <!-- Témoignage 4 (4 étoiles) -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars">
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <p class="testimonial-text">"Très bon suivi global. Les praticiens donnent d'excellents conseils d'exercices à réaliser à la maison."</p>
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Paul K.</div>
+                        <div class="author-role">Rééducation sportive</div>
+                    </div>
+                </div>
+
+                <!-- Témoignage 5 (4 étoiles) -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="stars">
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg class="star empty" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                        <p class="testimonial-text">"Séances efficaces et ponctuelles. Une équipe disponible qui prend le temps d'expliquer chaque traitement."</p>
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Sophie B.</div>
+                        <div class="author-role">Massage thérapeutique</div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="copyright">
-            <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
-        </div>
+        <p>&copy; 2019 Healing Hands - Kinésithérapie & Rééducation Fonctionnelle. Tous droits réservés.</p>
     </footer>
 </body>
 </html>
